@@ -13,7 +13,7 @@ const List = ({ carros, dispatch }) => {
 
     return (
         <div>
-            <div className="mx-3">
+            <div className="">
                 <table className="table">
                     <thead>
                         <tr>

@@ -3,6 +3,7 @@ import React from 'react'
 import Header from '../../components/estructura/Header'
 import Jumbotron from '../../components/home/Jumbotron'
 import MiniJumbotron from '../../components/home/MiniJumbotron'
+import Eventos from '../../eventos/Eventos'
 
 const Home = () => {
 
@@ -46,6 +47,8 @@ const Home = () => {
 
                 </div>
             </div>
+            <hr />
+            <Eventos />
         </div>
     )
 }

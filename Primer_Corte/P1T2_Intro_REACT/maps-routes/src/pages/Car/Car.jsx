@@ -20,9 +20,9 @@ const Car = () => {
 
     return (
         <>
-            <Header title={"Registrar un Vehiculo"} />
+            <Header title={"Nuestros Vehiculos"} />
 
-            <div className="row" style={{overflowX: 'hidden'}}>
+            <div className="container-fluid row">
                 <div className="col-sm-8">
                     <List carros={state} dispatch={dispatch} />
                 </div>
