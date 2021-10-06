@@ -14,7 +14,7 @@ const CardsCharacters = ({ characters = [] }) => {
                             <div className="card-body">
                                 <h5 className="card-title">{c.name}</h5>
                                 <div className="card-text">
-                                    <p className={c.status === 'Alive' ? "text-success" : c.status === 'Dead' ? "text-danger" : "text-warning"}>{c.status}</p>
+                                    <p className={c.status === 'Alive' ? "text-success" : c.status === 'Dead' ? "text-danger" : "text-info"}>{c.status}</p>
                                 </div>
                                 <Link to={`/character/${c.id}`} className="btn btn-primary">More...</Link>
                             </div>
