@@ -1,0 +1,41 @@
+/* font-family: 'Birthstone', cursive;
+font-family: 'Crimson Text', serif;
+font-family: 'Explora', cursive;
+font-family: 'Montserrat Alternates', sans-serif;
+font-family: 'Press Start 2P', cursive;
+font-family: 'Sacramento', cursive; */
+
+h1 {
+    font-family: 'Birthstone', cursive;
+}
+
+h3 {
+    font-family: 'Sacramento', cursive; 
+}
+
+h4 {
+    font-family: 'Explora', cursive;
+}
+
+p {
+    font-family: 'Montserrat Alternates', sans-serif;
+}
+
+a {
+    font-family: 'Press Start 2P', cursive;
+}
+
+table {
+    display: block;
+    font-family: 'Crimson Text', serif;
+    font-size: 30px;
+}
+
+th {
+    text-align: center;
+}
+
+td {
+    padding: 2vh 10vh;
+    text-align: right;
+}

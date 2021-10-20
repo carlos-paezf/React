@@ -1,0 +1,27 @@
+.redes {
+    display: flex;
+    column-gap: 35px;
+    justify-content: flex-end;
+    margin: 15px 20px;
+}
+
+.icono {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    align-items: center;
+    size: 20px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    height: 75px;
+}
+
+nav li {
+    display: inline;
+    list-style: none;
+    margin-inline: 25px;
+    font-family: 'Raleway', sans-serif;
+}
