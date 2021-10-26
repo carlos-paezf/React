@@ -38,8 +38,113 @@ Lo  más importante es que el jugador puede seleccionar los juegos que desea com
 |Sustentación (conocimiento, manejo y modificación de la aplicación) y documentación (código, arquitectura y aplicación)|1.7|
 |Look & Feel (diseño, colores, logo)|1.2|
 
-## Creación del proyecto
+## Primeros pasos del Proyecto
 
-```cmd
-create-react-app proyecto-final --template cra-template-pwa
+- Creación del proyecto
+
+    ```cmd
+    create-react-app proyecto-final --template cra-template-pwa
+    ```
+
+- Archivos eliminados
+
+  - App.css
+  - App.test.js
+  - index.css
+  - setupTest.js
+
+- Modificacion de la extensión del archivo `App.js` a `App.jsx`
+
+- Bootstrap
+
+  Dentro del archivo `public/index.html` añadimos el CDN para Bootstrap:
+
+  ```html
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+  ```
+
+- Comandos para las librerías que se usaran
+
+  - `yarn add react-router-dom`
+  - `yarn add redux`
+  - `yarn add react-redux`
+  - `yarn add firebase`
+  - `yarn add react-google-button`
+
+- Instalación global de las librerías:
+  
+  `yarn add react-router-dom redux react-redux firebase react-google-button`
+
+## Configuración de Firebase Web v9
+
+Dentro de Firebase Console se creo un proyecto llamado `plataforma-juegos`, dentro de la descripción general del proyecto accedemos a la opción Web (`</>`), registramos la aplicación y copiamos la configuración del SDK que nos muestra, dentro de un archivo personalizado (`firebase/config.js`) para las configuraciones de Firebase de nuestro proyecto.
+
+```js
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyA1dtQnRbFpnpZFElDO9YUHGL8L4sTfhE0",
+  authDomain: "plataforma-juegos.firebaseapp.com",
+  projectId: "plataforma-juegos",
+  storageBucket: "plataforma-juegos.appspot.com",
+  messagingSenderId: "1042370407187",
+  appId: "1:1042370407187:web:f33f65d513a51fdabf48e6",
+  measurementId: "G-850J5Q0WLF"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+```
+
+Además, dentro del mismo archivo también llamamos las librerías de firestore y auth de firebase.
+
+```js
+import { getFirestore } from 'firebase/firestore'
+import { GoogleAuthProvider } from 'firebase/auth'
+
+...
+const db = getFirestore(app)
+const googleAuthProvider = new GoogleAuthProvider() 
+
+export { db, googleAuthProvider }
+```
+
+## Definición de los tipos a usar en el proyecto
+
+En la narrativa del proyecto se nombran varias acciones respecto a los *jugadores*, *administradores*, *juegos* e *historial*. En primer medida las acciones que se extrajeron y se establecieron en el archvio `types/types.js` fueron las siguientes (está sujeto a cambios en futuros commits):
+
+```js
+export const types = {
+    login: '[Auth] login',
+    logout: '[Auth] logout',
+
+    gameCreate: '[Game] create',
+    gameAdd: '[Game] add',
+    gameDelete: '[Game] delete',
+    gameRead: '[Game] read',
+    gameClean: '[Game] clean',
+    gameReport: '[Game] report',
+
+    gameCollectionAdd: '[Game Collection] add',
+    gameCollectionDelete: '[Game Collection] delete',
+    gameCollectionRead: '[Game Collection] read',
+
+    checkPointAdd: '[Check Point] add',
+    checkPointDelete: '[Check Point] delete',
+    checkPointRestore: '[Check Point] restore',
+    checkPointShow: '[Check Point] show',
+
+    creditCardAdd: '[Credit Card] add',
+    creditCardDelete: '[Credit Card] delete',
+}
 ```
