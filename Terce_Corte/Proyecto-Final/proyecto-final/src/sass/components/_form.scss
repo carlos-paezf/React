@@ -1,14 +1,27 @@
-.wrapper-form {
+.wrapper-form, 
+.layer {
     display: flex;
-    width: 100%;
-    height: 100%;
     flex-direction: column;
     align-items: center;
     align-content: center;
     justify-content: center;
+}
+
+.wrapper-form {
+    width: 100%;
+    height: 100%;
     text-align: center;
     z-index: 100;
+}
 
+.layer {
+    width: 75%;
+    padding: 20px 10%;
+    background: rgba(68, 66, 66, 0.308);
+}
+
+.h-form {
+    width: 100%;
 }
 
 .title-form {
@@ -17,13 +30,29 @@
 
 .input {
     background-color: transparent;
-    border: 1px solid white;
+    border: none;
+    border-bottom: 1px solid white;
     color: white;
 
     &:focus {
         background-color: transparent;
         color : white
     }
+}
+
+.group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 60px;
+}
+
+.password-revealer {
+    background-color: transparent;
+    color: rgba(255, 255, 255, 0.596);
+    border: 1px solid rgb(146, 139, 139);
+    font-size: 20px;
+    border-radius: 25%;
 }
 
 .input-label {

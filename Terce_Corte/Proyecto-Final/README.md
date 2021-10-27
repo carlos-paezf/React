@@ -31,12 +31,12 @@ Lo  más importante es que el jugador puede seleccionar los juegos que desea com
 - El aplicativo debe tener un conjunto de estilos creado por el estudiante
 - Las revisiones o sustentaciones son individuales.
 
-|Ítem|Calificación|
-|----|------------|
-|Funcionalidad del aplicativo desplegado (login, módulo funcional de ventas, CRUD's de funcionalidades)|1.3|
-|Reportes|0.8|
-|Sustentación (conocimiento, manejo y modificación de la aplicación) y documentación (código, arquitectura y aplicación)|1.7|
-|Look & Feel (diseño, colores, logo)|1.2|
+| Ítem                                                                                                                    | Calificación |
+| ----------------------------------------------------------------------------------------------------------------------- | ------------ |
+| Funcionalidad del aplicativo desplegado (login, módulo funcional de ventas, CRUD's de funcionalidades)                  | 1.3          |
+| Reportes                                                                                                                | 0.8          |
+| Sustentación (conocimiento, manejo y modificación de la aplicación) y documentación (código, arquitectura y aplicación) | 1.7          |
+| Look & Feel (diseño, colores, logo)                                                                                     | 1.2          |
 
 ## Primeros pasos del Proyecto
 
@@ -77,6 +77,17 @@ Lo  más importante es que el jugador puede seleccionar los juegos que desea com
 - Instalación global de las librerías:
   
   `yarn add react-router-dom redux react-redux firebase react-google-button sass`
+
+- Animate CSS
+  
+  El proyecto va a contar con algunas pequeñas animaciones, para lo cual se hace uso la librería Animate CSS, pero añadido mediante su CDN en el archivo `public/index.html`:
+
+  ```html
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+  ```
 
 ## Configuración de Firebase Web v9
 
