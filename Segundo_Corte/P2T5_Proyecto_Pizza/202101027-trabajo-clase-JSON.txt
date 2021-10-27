@@ -1,0 +1,59 @@
+Trabajo JSON:
+
+
+En un proyecto nuevo llamado pizza, crear 5 JSON 
+(cada JSON es una preparación), mostrarlos en 
+listas OL. 
+
+En otro JSON independiente deben tener la lista 
+de las prepaciones(sabores) para saber que 
+deben adicionar, este se debe mostrar en una 
+lista desplegable para poder seleccionar el sabor a preparar.
+
+
+preparaciones(sabores):
+1:hawayana
+2:mexicana
+3:carnes
+4:bbq
+5:tropical
+
+------
+hawayana:
+1:masa
+2:piña
+3:salsa
+4:jamon
+5:queso
+
+mexicana:
+1:masa
+2:chile
+3:carne
+4:salsa
+5:tacos
+6:guiso
+7:queso
+
+carnes:
+1:masa
+2:salchicha
+3:salsa
+4:chorizo
+5:jamon
+6:queso
+
+bbq:
+1:masa
+2:salsa
+3:pollo
+4:salsabbq
+5:queso
+
+tropical:
+1:masa
+2:salsa
+3:durazno
+4:ciruelas
+5:cerezas
+6:queso

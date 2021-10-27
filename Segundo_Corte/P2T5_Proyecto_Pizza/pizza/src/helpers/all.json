@@ -1,0 +1,150 @@
+{
+    "pizzas": [
+        {
+            "id": 1,
+            "nombre": "hawayana",
+            "ingredientes": [
+                {
+                    "id": 1,
+                    "nombre": "piña" 
+                },
+                {
+                    "id": 2,
+                    "nombre": "jamón"
+                },
+                {
+                    "id": 3,
+                    "nombre": "queso"
+                },
+                {
+                    "id": 4,
+                    "nombre": "salsa" 
+                },
+                {
+                    "id": 5,
+                    "nombre": "masa"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "nombre": "mexicana",
+            "ingredientes": [
+                {
+                    "id": 1,
+                    "nombre": "masa" 
+                },
+                {
+                    "id": 2,
+                    "nombre": "chile"
+                },
+                {
+                    "id": 3,
+                    "nombre": "carne"
+                },
+                {
+                    "id": 4,
+                    "nombre": "salsa" 
+                },
+                {
+                    "id": 5,
+                    "nombre": "tacos"
+                },
+                {
+                    "id": 6,
+                    "nombre": "guiso"
+                },
+                {
+                    "id": 7,
+                    "nombre": "queso"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "nombre": "carnes",
+            "ingredientes": [
+                {
+                    "id": 1,
+                    "nombre": "masa" 
+                },
+                {
+                    "id": 2,
+                    "nombre": "salchicha"
+                },
+                {
+                    "id": 3,
+                    "nombre": "salsa"
+                },
+                {
+                    "id": 4,
+                    "nombre": "chorizo" 
+                },
+                {
+                    "id": 5,
+                    "nombre": "jamon"
+                },
+                {
+                    "id": 6,
+                    "nombre": "queso"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "nombre": "bbq",
+            "ingredientes": [
+                {
+                    "id": 1,
+                    "nombre": "masa" 
+                },
+                {
+                    "id": 2,
+                    "nombre": "salsa"
+                },
+                {
+                    "id": 3,
+                    "nombre": "pollo"
+                },
+                {
+                    "id": 4,
+                    "nombre": "salsa bbq" 
+                },
+                {
+                    "id": 5,
+                    "nombre": "queso"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "nombre": "tropical",
+            "ingredientes": [
+                {
+                    "id": 1,
+                    "nombre": "masa" 
+                },
+                {
+                    "id": 2,
+                    "nombre": "salsa"
+                },
+                {
+                    "id": 3,
+                    "nombre": "durazno"
+                },
+                {
+                    "id": 4,
+                    "nombre": "ciruelas" 
+                },
+                {
+                    "id": 5,
+                    "nombre": "cerezas"
+                },
+                {
+                    "id": 6,
+                    "nombre": "queso"
+                }
+            ]
+        }
+    ]
+}
