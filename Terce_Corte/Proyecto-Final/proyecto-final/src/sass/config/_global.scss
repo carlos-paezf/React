@@ -1,0 +1,29 @@
+body {
+    background-image: url(../../assets/body.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &::after {
+        z-index: -100;
+        position: absolute;
+        content: '';
+        width: 100%;
+        height: 100%;
+        top: 0;
+        right: 0;
+        background: rgb(53,53,69);
+        background: radial-gradient(
+            circle, 
+            rgba(53,53,69,0) 0%, 
+            rgba(30,30,34,0.20211834733893552) 14%, 
+            rgba(17,17,19,0.41780462184873945) 39%, 
+            rgba(7,7,8,0.6727065826330532) 59%, 
+            rgba(0,0,0,1) 100%
+        );
+    }
+}
+
+.app {
+    width: 100%;
+    height: 100vh;
+}

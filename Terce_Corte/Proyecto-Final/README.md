@@ -72,10 +72,11 @@ Lo  más importante es que el jugador puede seleccionar los juegos que desea com
   - `yarn add react-redux`
   - `yarn add firebase`
   - `yarn add react-google-button`
+  - `yarn add sass`
 
 - Instalación global de las librerías:
   
-  `yarn add react-router-dom redux react-redux firebase react-google-button`
+  `yarn add react-router-dom redux react-redux firebase react-google-button sass`
 
 ## Configuración de Firebase Web v9
 
