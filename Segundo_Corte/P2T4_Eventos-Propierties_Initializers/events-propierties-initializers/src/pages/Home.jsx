@@ -1,6 +1,7 @@
 import React from 'react'
 import { EventosES6, EventosES7 } from '../events/Eventos'
-import RenderizadoCondicional from '../events/RenderizadoCondicional'
+import { RenderizadoCondicionalES6, RenderizadoCondicionalES7 } from '../events/RenderizadoCondicional'
+import { RenderizadoElementosES6, RenderizadoElementosES7 } from './RenderizadoElementos'
 
 function Home() {
     return (
@@ -8,7 +9,11 @@ function Home() {
             <EventosES6 />
             <EventosES7 />
             <hr />
-            <RenderizadoCondicional />
+            <RenderizadoCondicionalES6 />
+            <RenderizadoCondicionalES7 />
+            <hr />
+            <RenderizadoElementosES6 />
+            <RenderizadoElementosES7 />
         </div>
     )
 }

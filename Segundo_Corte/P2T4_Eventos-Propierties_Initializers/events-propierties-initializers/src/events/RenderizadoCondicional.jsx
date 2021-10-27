@@ -16,16 +16,42 @@ const Logout = () => {
     )
 }
 
-export default class RenderizadoCondicional extends Component {
+export class RenderizadoCondicionalES6 extends Component {
     constructor(props) {
         super(props)
         this.state = {
             session: false
         }
+        this.handleAction = this.handleAction.bind(this)
     }
 
+    handleAction() {
+        this.setState({ session: !this.state.session })
+    }
+
+    render() {
+        return (
+            <>
+                <h2>Renderizado Condicional</h2>
+                <button className="btn btn-danger" onClick={this.handleAction}>Cambiar estado</button>
+                {
+                    this.state.session
+                        ? <Logout />
+                        : <Login />
+                }
+            </>
+        )
+    }
+}
+
+export class RenderizadoCondicionalES7 extends Component {
+    state = {
+        session: false
+    }
+
+
     handleAction = () => {
-        this.setState({session: !this.state.session})
+        this.setState({ session: !this.state.session })
     }
 
     render() {
