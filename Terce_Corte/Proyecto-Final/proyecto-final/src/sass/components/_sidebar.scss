@@ -1,0 +1,101 @@
+.sidebar,
+.option {
+    display: flex;
+    align-items: center;
+}
+
+.logo,
+.option,
+.user {
+    font-size: 25px;
+    color: white;
+}
+
+.sidebar {
+    flex-direction: column;
+    background-color: rgba(24, 29, 32, 0.712);
+    width: 75px;
+    height: 100%;
+    padding: 0;
+    justify-content: center;
+    
+    .logo {
+        position: fixed;
+        height: 100px;
+        top: 25px;
+        left: 25px;
+    }
+    
+    .options {
+        list-style: none;
+        padding: 0;
+        width: 100%;
+        
+        .option {
+            justify-content: center;
+            text-align: center;
+            height: 75px;
+            z-index: -100;
+
+            i {
+                display: block;
+            }
+            
+            .tooltip {
+                display: inline-block;
+                position: absolute;
+                color: white;
+                font-size: 15px;
+                justify-content: center;
+                left: 100px;
+                opacity: 0;
+            }
+
+            &:hover {
+                background-color: rgba(0, 0, 0, 0.712);
+                transform: scale(1.1);
+                transition: background-color 0.5s;
+
+                .tooltip {
+                    opacity: 1;
+                    transition: opacity .5s;
+                }
+            }
+
+            &.active {
+                background-color: rgba(0, 0, 0, 0.712);
+            }
+        }
+    }
+
+    .user {
+        position: fixed;
+        bottom: 0;
+        width: 75px;
+        padding: 10px 0;
+        text-align: center;
+
+        .tooltip {
+            display: inline-block;
+            position: absolute;
+            color: white;
+            font-size: 15px;
+            justify-content: center;
+            left: 100px;
+            bottom: 20px;
+            opacity: 0;
+        }
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.712);
+            transform: scale(1.1);
+            transition: background-color 0.5s;
+            color: rgb(173, 173, 173);
+
+            .tooltip {
+                opacity: 1;
+                transition: opacity .5s;
+            }
+        }
+    }
+}
