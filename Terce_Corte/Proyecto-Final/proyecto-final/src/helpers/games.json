@@ -1,0 +1,28 @@
+{
+    "games": [
+        {
+            "id": 1,
+            "name": "La Purga",
+            "genres": "Scary, Movie, Shooter, Battle royal",
+            "url": "https://images.unsplash.com/photo-1519669556878-63bdad8a1a49?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1471&q=80"
+        },
+        {
+            "id": 2,
+            "name": "Zona Gamming",
+            "genres": "Tv Show, Internet",
+            "url": "https://images.unsplash.com/photo-1511512578047-dfb367046420?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1471&q=80"
+        },
+        {
+            "id": 3,
+            "name": "Pc Gaming ",
+            "genres": "Computer",
+            "url": "https://images.unsplash.com/photo-1555680202-c86f0e12f086?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80"
+        },
+        {
+            "id": 4,
+            "name": "Gaming",
+            "genres": "Video Games",
+            "url": "https://images.unsplash.com/photo-1542751371-adc38448a05e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80"
+        }
+    ]
+}

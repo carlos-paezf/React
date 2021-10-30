@@ -12,12 +12,14 @@
 }
 
 .sidebar {
+    z-index: 100;
+    position: fixed;
     flex-direction: column;
-    background-color: rgba(24, 29, 32, 0.712);
     width: 75px;
     height: 100%;
     padding: 0;
     justify-content: center;
+    background-color: black;
     
     .logo {
         position: fixed;
@@ -27,9 +29,10 @@
     }
     
     .options {
+        position: fixed;
         list-style: none;
         padding: 0;
-        width: 100%;
+        width: 75px;
         
         .option {
             justify-content: center;
@@ -52,7 +55,7 @@
             }
 
             &:hover {
-                background-color: rgba(0, 0, 0, 0.712);
+                background-color: rgb(35, 42, 46);
                 transform: scale(1.1);
                 transition: background-color 0.5s;
 
@@ -63,7 +66,7 @@
             }
 
             &.active {
-                background-color: rgba(0, 0, 0, 0.712);
+                background-color: rgba(35, 42, 46, 0.712);
             }
         }
     }

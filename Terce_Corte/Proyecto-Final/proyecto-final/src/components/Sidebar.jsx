@@ -2,7 +2,7 @@ import React from 'react'
 
 const Sidebar = () => {
     return (
-        <aside className="sidebar animate__animated animate__zoomIn">
+        <aside className="sidebar animate__animated animate__fadeInUp">
             <div className="logo">
                 <i className="bi bi-bezier2"></i>
             </div>
