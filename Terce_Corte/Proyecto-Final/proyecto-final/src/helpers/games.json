@@ -3,26 +3,157 @@
         {
             "id": 1,
             "name": "La Purga",
-            "genres": "Scary, Movie, Shooter, Battle royal",
-            "url": "https://images.unsplash.com/photo-1519669556878-63bdad8a1a49?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1471&q=80"
+            "genres": [
+                "Scary", 
+                "Movie", 
+                "Shooter", 
+                "Battle royal"
+            ], 
+            "price": 1800,
+            "minimum_requirements": {
+                "processor": "Intel Core i5 or higher",
+                "os": "Windows",
+                "ram": "8 GB",
+                "gpu": "NVIDIA GeForce GT 1030"
+            },
+            "recommended_requirements": {
+                "processor": "Intel Core i7 or higher",
+                "os": "Windows",
+                "ram": "16 GB",
+                "gpu": "NVIDIA GeForce GTX 1060 6 GB or higher",
+                "storage": "minimun 30 GB"
+            },
+            "url": [
+                "https://images.unsplash.com/photo-1569014870202-ca0c5e24e77b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1334&q=80",
+                "https://images.unsplash.com/photo-1569516449813-913eccff2062?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80",
+                "https://images.unsplash.com/photo-1519669556878-63bdad8a1a49?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1471&q=80",
+                "https://images.unsplash.com/photo-1541963687243-a314178d14f0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80",
+                "https://images.unsplash.com/photo-1545859818-2ee8b3610952?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80",
+                "https://images.unsplash.com/photo-1541400117672-40497d39cee5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1471&q=80",
+                "https://images.unsplash.com/photo-1543322054-ac0ac97f1ddf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1333&q=80"
+            ]
         },
         {
             "id": 2,
             "name": "Zona Gamming",
-            "genres": "Tv Show, Internet",
-            "url": "https://images.unsplash.com/photo-1511512578047-dfb367046420?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1471&q=80"
+            "genres": [
+                "Tv Show", 
+                "Internet"
+            ],
+            "price": 0,
+            "minimum_requirements": {
+                "processor": "Intel Core i5 or higher",
+                "os": "Windows",
+                "ram": "8 GB",
+                "gpu": "NVIDIA GeForce GT 1030"
+            },
+            "recommended_requirements": {
+                "processor": "Intel Core i7 or higher",
+                "os": "Windows",
+                "ram": "16 GB",
+                "gpu": "NVIDIA GeForce GTX 1060 6 GB or higher",
+                "storage": "minimun 30 GB"
+            },
+            "url": [
+                "https://images.unsplash.com/photo-1533654238074-8841f6e8e610?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+                "https://images.unsplash.com/photo-1598550487031-0898b4852123?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+                "https://images.unsplash.com/photo-1593305841991-05c297ba4575?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1057&q=80",
+                "https://images.unsplash.com/photo-1621211255064-8915268b62f4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80",
+                "https://images.unsplash.com/photo-1562229125-6d6075419a22?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1074&q=80",
+                "https://images.unsplash.com/photo-1511882150382-421056c89033?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1471&q=80",
+                "https://images.unsplash.com/photo-1511512578047-dfb367046420?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1471&q=80"
+            ]
         },
         {
             "id": 3,
-            "name": "Pc Gaming ",
-            "genres": "Computer",
-            "url": "https://images.unsplash.com/photo-1555680202-c86f0e12f086?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80"
+            "name": "Pc Gaming",
+            "genres": [
+                "Computer",
+                "People",
+                "Relationships"
+            ],
+            "price": 5000,
+            "minimum_requirements": {
+                "processor": "Intel Core i5 or higher",
+                "os": "Windows",
+                "ram": "8 GB",
+                "gpu": "NVIDIA GeForce GT 1030"
+            },
+            "recommended_requirements": {
+                "processor": "Intel Core i7 or higher",
+                "os": "Windows",
+                "ram": "16 GB",
+                "gpu": "NVIDIA GeForce GTX 1060 6 GB or higher",
+                "storage": "minimun 30 GB"
+            },
+            "url": [
+                "https://images.unsplash.com/photo-1573053986275-840ffc7cc685?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+                "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1265&q=80",
+                "https://images.unsplash.com/photo-1495954222046-2c427ecb546d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1332&q=80",
+                "https://images.unsplash.com/photo-1597049176495-60ca7846c7ba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1331&q=80",
+                "https://images.unsplash.com/photo-1555680202-c86f0e12f086?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80",
+                "https://images.unsplash.com/photo-1598550476439-6847785fcea6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+                "https://images.unsplash.com/photo-1627856014754-2907e2355d34?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1447&q=80"
+            ]
         },
         {
             "id": 4,
             "name": "Gaming",
-            "genres": "Video Games",
-            "url": "https://images.unsplash.com/photo-1542751371-adc38448a05e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80"
+            "genres": [
+                "Video Games",
+                "Computer",
+                "Zone"
+            ],
+            "price": 321,
+            "minimum_requirements": {
+                "processor": "Intel Core i5 or higher",
+                "os": "Windows",
+                "ram": "8 GB",
+                "gpu": "NVIDIA GeForce GT 1030"
+            },
+            "recommended_requirements": {
+                "processor": "Intel Core i7 or higher",
+                "os": "Windows",
+                "ram": "16 GB",
+                "gpu": "NVIDIA GeForce GTX 1060 6 GB or higher",
+                "storage": "minimun 30 GB"
+            },
+            "url": [
+                "https://images.unsplash.com/photo-1551103782-8ab07afd45c1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80",
+                "https://images.unsplash.com/photo-1579373903781-fd5c0c30c4cd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1074&q=80",
+                "https://images.unsplash.com/photo-1560253023-3ec5d502959f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+                "https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80",
+                "https://images.unsplash.com/photo-1627855437292-7efeee237b12?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=985&q=80",
+                "https://images.unsplash.com/photo-1486572788966-cfd3df1f5b42?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1472&q=80",
+                "https://images.unsplash.com/photo-1542751371-adc38448a05e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80"
+            ]
+        }
+    ],
+
+    "statistics": [
+        {
+            "id": 1,
+            "id_game": 1,
+            "hours_play": 100,
+            "players": 2
+        },
+        {
+            "id": 2,
+            "id_game": 2,
+            "hours_play": 1000,
+            "players": 2
+        },
+        {
+            "id": 3,
+            "id_game": 3,
+            "hours_play": 522,
+            "players": 2
+        },
+        {
+            "id": 4,
+            "id_game": 4,
+            "hours_play": 1000,
+            "players": 2
         }
     ]
 }

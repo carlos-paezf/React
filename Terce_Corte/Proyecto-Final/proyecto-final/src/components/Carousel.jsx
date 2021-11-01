@@ -4,13 +4,18 @@ import games from '../helpers/games.json'
 
 export const Slide = (props) => {
     const { id, name, genres, url } = props
+
+    const getRandomURL = (min, max) => {
+        return Math.floor(Math.random() * (max - min)) + min
+    }    
+
     return (
-        <div key={id} className="slide">
-            <a href={`games/${id}`} target="_blank" rel="noreferrer">
-                <img src={url} alt="" />
+        <div key={ id } className="slide">
+            <a href={ `games/${id}` } target="_blank" rel="noreferrer">
+                <img src={ url[getRandomURL(0, url.length)] } alt="" />
                 <div className="text">
-                    <h3 className="genres">{genres}</h3>
-                    <h1 class="name-game">{name}</h1>
+                    <h3 className="genres">{ genres.join(", ") }</h3>
+                    <h1 className="name-game">{ name }</h1>
                 </div>
             </a>
         </div>
@@ -70,11 +75,11 @@ const Carousel = () => {
     }, [])
 
     return (
-        <div className="principal">
+        <div className="principal animate__animated animate__fadeIn">
             <div className="slideshow" ref={slideshow}>
                 {
                     games.games.map(g =>
-                        <Slide {...g} />
+                        <Slide key={ g.id } {...g} />
                     )
                 }
             </div>
