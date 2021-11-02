@@ -94,3 +94,5 @@ const Carousel = () => {
 }
 
 export default Carousel
+
+// https://www.youtube.com/watch?v=q00ldTrywLU

@@ -1,41 +1,43 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
 
 const Sidebar = () => {
+
     return (
-        <aside className="sidebar animate__animated animate__fadeInUp">
+        <aside className="sidebar">
             <div className="logo">
                 <i className="bi bi-bezier2"></i>
             </div>
             <ul className="options">
                 <li>
-                    <div className="option active">
+                    <NavLink to="/home" className="option" activeClassName="active-option">
                         <label className="tooltip">Home</label>
                         <i className="bi bi-house"></i>
-                    </div>
+                    </NavLink>
                 </li>
                 <li>
-                    <div className="option">
+                    <NavLink to="/games" className="option" activeClassName="active-option">
                         <label className="tooltip">Games</label>
                         <i className="bi bi-controller"></i>
-                    </div>
+                    </NavLink>
                 </li>
                 <li>
-                    <div className="option">
+                    <NavLink to="/shop" className="option" activeClassName="active-option">
                         <label className="tooltip">Shop</label>
                         <i className="bi bi-bag"></i>
-                    </div>
+                    </NavLink>
                 </li>
                 <li>
-                    <div className="option">
+                    <NavLink to="/statistics" className="option" activeClassName="active-option">
                         <label className="tooltip">Stadistics</label>
                         <i className="bi bi-speedometer2"></i>
-                    </div>
+                    </NavLink>
                 </li>
                 <li>
-                    <div className="option">
+                    <NavLink to="/settings" className="option" activeClassName="active-option">
                         <label className="tooltip">Settings</label>
                         <i className="bi bi-sliders"></i>
-                    </div>
+                    </NavLink>
                 </li>
             </ul>
             <div className="user">

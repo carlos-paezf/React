@@ -1,0 +1,48 @@
+{
+    "persons": [
+        {
+            "id": 1,
+            "first_name": "Carlos",
+            "last_name": "Páez",
+            "email_address": "test1@mail.com",
+            "password": "admin123",
+            "rol": "admin",
+            "games_profile": [
+                1,
+                2,
+                3,
+                4
+            ],
+            "games_owner": [
+                1,
+                2,
+                3,
+                4
+            ]
+        },
+        {
+            "id": 2,
+            "first_name": "David",
+            "last_name": "Ferreira",
+            "email_address": "test2@mail.com",
+            "password": "A123456789",
+            "rol": "player",
+            "games_profile": [
+                1,
+                4
+            ]
+        },
+        {
+            "id": 3,
+            "first_name": "David",
+            "last_name": "Ferrer",
+            "email_address": "test3@mail.com",
+            "password": "player_123",
+            "rol": "player",
+            "games_profile": [
+                2,
+                3
+            ]
+        }
+    ]
+}

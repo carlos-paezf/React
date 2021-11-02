@@ -1,16 +1,19 @@
-import React from 'react'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import AppScreen from '../pages/AppScreen'
-import LoginScreen from '../pages/LoginScreen'
-import RegisterScreen from '../pages/RegisterScreen'
+import React, { useState } from 'react'
+import { BrowserRouter as Router, Switch } from 'react-router-dom'
+import PublicRouter from './PublicRouter'
+import AuthRouter from './AuthRouter'
+import PrivateRouter from './PrivateRouter'
+import PrincipalRouter from './PrincipalRouter'
 
 const AppRouter = () => {
+
+    const [log, setLog] = useState(true)
+
     return (
         <Router>
             <Switch>
-                <Route exact path="/auth/login" component={LoginScreen} />
-                <Route exact path="/auth/register" component={RegisterScreen} />
-                <Route exact path="/" component={AppScreen} />
+                <PublicRouter path="/auth" auth={log} component={AuthRouter} />
+                <PrivateRouter path="/" auth={log} component={PrincipalRouter} />
             </Switch>
         </Router>
     )

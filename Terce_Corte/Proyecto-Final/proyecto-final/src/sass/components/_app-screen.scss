@@ -11,7 +11,13 @@ main,
     
     main {
         flex-direction: column;
-        padding-left: 75px;
-        overflow: hidden;
+        margin-left: 75px;
+        overflow-x: hidden;
     }
+}
+
+.main {
+    width: 100vw;
+    overflow-x: hidden;
+    padding-left: 75px;
 }
