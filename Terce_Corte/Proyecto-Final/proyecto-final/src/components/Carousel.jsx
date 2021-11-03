@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import games from '../helpers/games.json'
+import { Link } from 'react-router-dom'
 
 
 export const Slide = (props) => {
@@ -11,13 +12,13 @@ export const Slide = (props) => {
 
     return (
         <div key={ id } className="slide">
-            <a href={ `games/${id}` } target="_blank" rel="noreferrer">
+            <Link to={ `/games/${id}` } >
                 <img src={ url[getRandomURL(0, url.length)] } alt="" />
                 <div className="text">
                     <h3 className="genres">{ genres.join(", ") }</h3>
                     <h1 className="name-game">{ name }</h1>
                 </div>
-            </a>
+            </Link>
         </div>
     )
 }
@@ -93,6 +94,6 @@ const Carousel = () => {
     )
 }
 
-export default Carousel
+export default React.memo(Carousel)
 
 // https://www.youtube.com/watch?v=q00ldTrywLU
