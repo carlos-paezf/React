@@ -19,6 +19,7 @@
         align-items: center;
         align-content: center;
         justify-content: center;
+        padding-bottom: 50px;
     }
 }
 
@@ -103,11 +104,11 @@
     
     .b-game {
         width: 100%;
-        height: 50%;
+        height: 500px;
         position: relative;
         
         .h-game {
-            position: absolute;
+            // position: absolute;
             top: 0;
             width: 100%;
             height: 100%;
@@ -128,6 +129,16 @@
                 z-index: 2;
                 top: 50%;
                 padding-left: 5%;
+
+                .go-back {
+                    position: absolute;
+                    top: 5%;
+                    border: 1px solid rgba(255, 255, 255, 0.5);
+                    padding: 5px 10px;
+                    cursor: pointer;
+                    border-radius: 5%;
+                    font-size: 15px;
+                }
 
                 h1 {
                     font-size: 70px;
@@ -154,10 +165,57 @@
         margin-top: 25px;
         display: grid;
         width: 100%;
-        grid-template-columns: 70% 30%;
+        grid-template-columns: 75% 25%;
 
         .json {
             padding: 25px;
+            color: white;
+
+            .subtitle {
+                margin-top: 50px;
+            }
+
+            .c-g-images {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: 30%;
+                position: relative;
+                z-index: 0;
+                
+                .i-prev, .i-next {
+                    position: absolute;
+                    z-index: 1;
+                    font-size: 40px;
+                    height: 100%;
+                    width: 10%;
+                    background-color: rgba(0, 0, 0, 0.658);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    
+                    i {
+                        cursor: pointer;
+                    }
+                }
+
+                .i-prev {
+                    left: 0;
+                }
+
+                .i-next {
+                    right: 0;
+                }
+
+                img {
+                    z-index: -1;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                }
+            }
         }
 
         .g-images {
@@ -179,6 +237,31 @@
             .price {
                 width: 100%;
                 margin: 25px 0;
+                display: flex;
+                flex-direction: row;
+                align-content: center;
+                align-items: center;
+
+                .new-price {
+                    margin-right: 10px;
+                }
+
+                .original-price {
+                    color: gray;
+                    text-decoration: line-through;
+                }
+            }
+
+            .discount-display {
+                margin-top: -20px;
+
+                .discount-value {
+                    margin-bottom: -1px;
+                }
+
+                .discount-date {
+                    color: rgb(255, 75, 75);
+                }
             }
 
             .buttons-buy {
@@ -211,12 +294,19 @@
             }
         }
 
-        .min-req {
-            grid-template: "min";
-        }
+        .features {
+            margin-top: 25px;
+            background-color: rgba(15, 15, 15, 0.9);
+            padding: 25px;
 
-        .rec-req {
-            grid-template: "rec";
+            p {
+                margin: 5px 0;
+
+                i {
+                    text-transform: uppercase;
+                    color: gray;
+                }
+            }
         }
     }
 }
@@ -241,5 +331,23 @@
 
     i {
         margin-right: 5px;
+    }
+}
+
+.table {
+    color: white;
+    margin: 50px 0;
+    border: 1px solid rgb(27, 25, 25);
+
+    thead {
+        text-align: center;
+    }
+
+    th {
+        border: none;
+    }
+
+    .th-comp {
+        width: 30%;
     }
 }

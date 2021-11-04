@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 import games from '../helpers/games.json'
+
 
 export const Tags = ({ genre }) => {
     return (
@@ -12,23 +13,88 @@ export const Tags = ({ genre }) => {
 }
 
 
+
+export const TableRequirements = ({ bcolor, name, processor, os, ram, gpu }) => {
+    return (
+        <table className="table">
+            <thead>
+                <tr>
+                    <th colSpan="2" style={{ backgroundColor: bcolor }}>{name}</th>
+                </tr>
+                <tr>
+                    <th colSpan="2">Specification</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th className="th-comp">Processor</th>
+                    <th>{processor}</th>
+                </tr>
+                <tr>
+                    <th className="th-comp">OS</th>
+                    <th>{os}</th>
+                </tr>
+                <tr>
+                    <th className="th-comp">Ram</th>
+                    <th>{ram}</th>
+                </tr>
+                <tr>
+                    <th className="th-comp">GPU</th>
+                    <th>{gpu}</th>
+                </tr>
+            </tbody>
+        </table>
+    )
+}
+
+
+
 const GameDetail = ({ history }) => {
     const { idGame } = useParams()
+
+    const { name, genres, price, version, release_date, description, developer, editor, classification_esrb, discount_percent, minimum_requirements, recommended_requirements, url } = games.games.find(g => g.id === parseInt(idGame))
+
+    const [index, setIndex] = useState(0)
 
     const getRandomURL = (min, max) => {
         return Math.floor(Math.random() * (max - min)) + min
     }
 
-    const { name, genres, price, minimum_requirements, recommended_requirements, url } = games.games.find(g => g.id === parseInt(idGame))
+    const applyDiscount = () => {
+        let newPrice;
+        if (price > 0) {
+            newPrice = price - ((price * discount_percent) / 100)
+        } else {
+            newPrice = price
+        }
+        return newPrice
+    }
 
-    console.log(minimum_requirements);
+    const handleBack = () => {
+        history.goBack()
+    }
 
+    const handlePrev = () => {
+        setIndex(i => i - 1)
+        if (index === 0) {
+            setIndex(url.length - 1)
+        }
+    }
+
+    const handleNext = () => {
+        setIndex(i => i + 1)
+        if (index === url.length - 1) {
+            setIndex(0)
+        }
+    }
+    
     return (
         <div className="game-detail">
             <div className="b-game">
                 <div className="h-game">
                     <img className="h-b-image animate__animated animate__fadeInLeft" src={url[getRandomURL(0, url.length)]} alt="" />
                     <div className="h-content">
+                        <label className="go-back" onClick={handleBack}><i class="bi bi-arrow-left"></i> Go back</label>
                         <h1>{name}</h1>
                         <section className="tags">
                             {
@@ -38,85 +104,63 @@ const GameDetail = ({ history }) => {
                     </div>
                 </div>
             </div>
+
             <div className="c-game">
                 <div className="json">
-                    <h3>Some Screenshots</h3>
-                    <div className="g-images">
-                        {
-                            url.map((g, i) => <img className="c-image-game" src={g} key={i} alt={i} />)
-                        }
+                    <h3>Description</h3>
+                    <p>{description}</p>
+
+                    <h4 className="subtitle">Release Date</h4>
+                    <p>{release_date}</p>
+
+                    <h4 className="subtitle">Version</h4>
+                    <p>{version}</p>
+
+                    <h4 className="subtitle">Some Screenshots</h4>
+
+                    <div className="c-g-images">
+                        <div className="i-prev"><i class="bi bi-chevron-left" onClick={handlePrev}></i></div>
+                        <img className="animate__animated animate__fadeIn" src={url[index]} alt="" />
+                        <div className="i-next"><i class="bi bi-chevron-right" onClick={handleNext}></i></div>
                     </div>
+                    
                     <div className="min-req">
-                        <table className="table table-dark">
-                            <thead>
-                                <tr>
-                                    <th colSpan="2">Minimum Requirements</th>
-                                </tr>
-                                <tr>
-                                    <th></th>
-                                    <th>Specification</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th>Processor</th>
-                                    <th>{minimum_requirements.processor}</th>
-                                </tr>
-                                <tr>
-                                    <th>OS</th>
-                                    <th>{minimum_requirements.os}</th>
-                                </tr>
-                                <tr>
-                                    <th>Ram</th>
-                                    <th>{minimum_requirements.ram}</th>
-                                </tr>
-                                <tr>
-                                    <th>GPU</th>
-                                    <th>{minimum_requirements.gpu}</th>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <TableRequirements name={"Minimum Requirements"} bcolor={`rgba(165, 5, 5, 0.5)`} {...minimum_requirements} />
                     </div>
 
                     <div className="rec-req">
-                        <table className="table table-dark">
-                            <thead>
-                                <tr>
-                                    <th colSpan="2">Recommended Requirements</th>
-                                </tr>
-                                <tr>
-                                    <th></th>
-                                    <th>Specification</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th>Processor</th>
-                                    <th>{recommended_requirements.processor}</th>
-                                </tr>
-                                <tr>
-                                    <th>OS</th>
-                                    <th>{recommended_requirements.os}</th>
-                                </tr>
-                                <tr>
-                                    <th>Ram</th>
-                                    <th>{recommended_requirements.ram}</th>
-                                </tr>
-                                <tr>
-                                    <th>GPU</th>
-                                    <th>{recommended_requirements.gpu}</th>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <TableRequirements name={"Recommended Requirements"} bcolor={`rgba(4, 160, 30, 0.5)`} {...recommended_requirements} />
                     </div>
                 </div>
 
-                <div >
+                <div>
                     <div className="buy-zone">
-
                         <div className="price">
-                            <h3>{price > 0 ? `${price} US$` : `Free Product`}</h3>
+                            <h2 className="new-price animate__animated animate__flash">
+                                {
+                                    price > 0
+                                        ? (discount_percent > 0
+                                            ? `${applyDiscount()} US$`
+                                            : `${price} US$`)
+                                        : `Free Product`
+                                }
+                            </h2>
+                            <h6 className="original-price animate__animated animate__hinge animate__delay-2s">
+                                {
+                                    (price > 0 && discount_percent > 0)
+                                        ? `${price} US$`
+                                        : ``
+                                }
+                            </h6>
                         </div>
+                        {
+                            (price > 0 && discount_percent > 0)
+                                ? <div className="discount-display">
+                                    <p className="discount-value">{`${discount_percent}% Off`}</p>
+                                    <p className="discount-date"><i class="bi bi-clock-history"></i> This offert ends in <b>1 day</b>!</p>
+                                </div>
+                                : ``
+                        }
                         <div className="buttons-buy">
                             <button className="btn add-cart">Add to Cart</button>
                             <button className="btn fav">
@@ -126,9 +170,18 @@ const GameDetail = ({ history }) => {
                             <p className="guarantee">30 day money back guarantee</p>
                         </div>
                     </div>
+
+                    <div className="features">
+                        <p><i>Name:</i> {name}</p>
+                        <p><i>Genres:</i> {genres.join(', ')}</p>
+                        <p><i>Release Date:</i> {release_date}</p>
+                        <p><i>Version:</i> {version}</p>
+                        <p><i>Developer:</i> {developer}</p>
+                        <p><i>Editor:</i> {editor}</p>
+                        <p><i>Classification ESRB:</i> {classification_esrb}</p>
+                    </div>
                 </div>
             </div>
-
 
         </div>
     )

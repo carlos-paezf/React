@@ -1,5 +1,6 @@
 import React from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
+import Footer from '../components/Footer'
 import Sidebar from '../components/Sidebar'
 import GameDetail from '../pages/GameDetail'
 import GameScreen from '../pages/GameScreen'
@@ -18,6 +19,7 @@ const PrincipalRouter = () => {
                 <Route exact path="/settings" />
                 <Redirect to="/home" />
             </Switch>
+            <Footer />
         </>
     )
 }

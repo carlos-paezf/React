@@ -8,8 +8,15 @@
                 "Movie", 
                 "Shooter", 
                 "Battle royal"
-            ], 
+            ],
+            "version": "1.0.0",
+            "release_date": "2021-01-31",
+            "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit dolores, quas obcaecati delectus in nobis, iure est similique atque laborum cupiditate? Eveniet reiciendis eligendi labore quos, alias aliquid consequuntur dolorum! Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, molestiae? Esse eius, quisquam quae ex enim amet, expedita a omnis repellat placeat quia molestias possimus provident dolorum alias. Atque, eligendi? Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic facere reiciendis tempore odio sapiente in similique pariatur amet totam? Odit placeat vel magni voluptas officia quisquam repudiandae beatae odio reiciendis.", 
+            "developer": "David Ferrer",
+            "editor": "Foo Bar",
+            "classification_esrb": "M17+",
             "price": 1800,
+            "discount_percent": 20,
             "minimum_requirements": {
                 "processor": "Intel Core i5 or higher",
                 "os": "Windows",
@@ -31,6 +38,13 @@
                 "https://images.unsplash.com/photo-1545859818-2ee8b3610952?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80",
                 "https://images.unsplash.com/photo-1541400117672-40497d39cee5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1471&q=80",
                 "https://images.unsplash.com/photo-1543322054-ac0ac97f1ddf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1333&q=80"
+            ],
+            "reviews": [
+                {
+                    "id": 1,
+                    "date_review": "",
+                    "review": "" 
+                }
             ]
         },
         {
@@ -40,7 +54,14 @@
                 "Tv Show", 
                 "Internet"
             ],
+            "version": "1.0.0",
+            "release_date": "2021-01-31",
+            "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit dolores, quas obcaecati delectus in nobis, iure est similique atque laborum cupiditate? Eveniet reiciendis eligendi labore quos, alias aliquid consequuntur dolorum! Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, molestiae? Esse eius, quisquam quae ex enim amet, expedita a omnis repellat placeat quia molestias possimus provident dolorum alias. Atque, eligendi? Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic facere reiciendis tempore odio sapiente in similique pariatur amet totam? Odit placeat vel magni voluptas officia quisquam repudiandae beatae odio reiciendis.",
+            "developer": "David Ferrer",
+            "editor": "Foo Bar",
+            "classification_esrb": "M17+",
             "price": 0,
+            "discount_percent": 0,
             "minimum_requirements": {
                 "processor": "Intel Core i5 or higher",
                 "os": "Windows",
@@ -62,6 +83,13 @@
                 "https://images.unsplash.com/photo-1562229125-6d6075419a22?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1074&q=80",
                 "https://images.unsplash.com/photo-1511882150382-421056c89033?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1471&q=80",
                 "https://images.unsplash.com/photo-1511512578047-dfb367046420?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1471&q=80"
+            ],
+            "reviews": [
+                {
+                    "id": 1,
+                    "date_review": "",
+                    "review": "" 
+                }
             ]
         },
         {
@@ -72,7 +100,14 @@
                 "People",
                 "Relationships"
             ],
+            "version": "1.0.0",
+            "release_date": "2021-01-31",
+            "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit dolores, quas obcaecati delectus in nobis, iure est similique atque laborum cupiditate? Eveniet reiciendis eligendi labore quos, alias aliquid consequuntur dolorum! Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, molestiae? Esse eius, quisquam quae ex enim amet, expedita a omnis repellat placeat quia molestias possimus provident dolorum alias. Atque, eligendi? Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic facere reiciendis tempore odio sapiente in similique pariatur amet totam? Odit placeat vel magni voluptas officia quisquam repudiandae beatae odio reiciendis.",
+            "developer": "David Ferrer",
+            "editor": "Foo Bar",
+            "classification_esrb": "M17+",
             "price": 5000,
+            "discount_percent": 75,
             "minimum_requirements": {
                 "processor": "Intel Core i5 or higher",
                 "os": "Windows",
@@ -94,6 +129,13 @@
                 "https://images.unsplash.com/photo-1555680202-c86f0e12f086?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80",
                 "https://images.unsplash.com/photo-1598550476439-6847785fcea6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
                 "https://images.unsplash.com/photo-1627856014754-2907e2355d34?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1447&q=80"
+            ],
+            "reviews": [
+                {
+                    "id": 1,
+                    "date_review": "",
+                    "review": "" 
+                }
             ]
         },
         {
@@ -104,7 +146,14 @@
                 "Computer",
                 "Zone"
             ],
+            "version": "1.0.0",
+            "release_date": "2021-01-31",
+            "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit dolores, quas obcaecati delectus in nobis, iure est similique atque laborum cupiditate? Eveniet reiciendis eligendi labore quos, alias aliquid consequuntur dolorum! Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, molestiae? Esse eius, quisquam quae ex enim amet, expedita a omnis repellat placeat quia molestias possimus provident dolorum alias. Atque, eligendi? Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic facere reiciendis tempore odio sapiente in similique pariatur amet totam? Odit placeat vel magni voluptas officia quisquam repudiandae beatae odio reiciendis.",
+            "developer": "David Ferrer",
+            "editor": "Foo Bar",
+            "classification_esrb": "M17+",
             "price": 321,
+            "discount_percent": 10,
             "minimum_requirements": {
                 "processor": "Intel Core i5 or higher",
                 "os": "Windows",
@@ -126,6 +175,13 @@
                 "https://images.unsplash.com/photo-1627855437292-7efeee237b12?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=985&q=80",
                 "https://images.unsplash.com/photo-1486572788966-cfd3df1f5b42?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1472&q=80",
                 "https://images.unsplash.com/photo-1542751371-adc38448a05e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80"
+            ],
+            "reviews": [
+                {
+                    "id": 1,
+                    "date_review": "",
+                    "review": "" 
+                }
             ]
         },
         {
@@ -136,8 +192,15 @@
                 "Movie", 
                 "Shooter", 
                 "Battle royal"
-            ], 
+            ],
+            "version": "1.0.0",
+            "release_date": "2021-01-31",
+            "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit dolores, quas obcaecati delectus in nobis, iure est similique atque laborum cupiditate? Eveniet reiciendis eligendi labore quos, alias aliquid consequuntur dolorum! Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, molestiae? Esse eius, quisquam quae ex enim amet, expedita a omnis repellat placeat quia molestias possimus provident dolorum alias. Atque, eligendi? Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic facere reiciendis tempore odio sapiente in similique pariatur amet totam? Odit placeat vel magni voluptas officia quisquam repudiandae beatae odio reiciendis.", 
+            "developer": "David Ferrer",
+            "editor": "Foo Bar",
+            "classification_esrb": "M17+",
             "price": 1800,
+            "discount_percent": 5,
             "minimum_requirements": {
                 "processor": "Intel Core i5 or higher",
                 "os": "Windows",
@@ -159,6 +222,13 @@
                 "https://images.unsplash.com/photo-1545859818-2ee8b3610952?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80",
                 "https://images.unsplash.com/photo-1541400117672-40497d39cee5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1471&q=80",
                 "https://images.unsplash.com/photo-1543322054-ac0ac97f1ddf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1333&q=80"
+            ],
+            "reviews": [
+                {
+                    "id": 1,
+                    "date_review": "",
+                    "review": "" 
+                }
             ]
         },
         {
@@ -168,7 +238,14 @@
                 "Tv Show", 
                 "Internet"
             ],
+            "version": "1.0.0",
+            "release_date": "2021-01-31",
+            "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit dolores, quas obcaecati delectus in nobis, iure est similique atque laborum cupiditate? Eveniet reiciendis eligendi labore quos, alias aliquid consequuntur dolorum! Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, molestiae? Esse eius, quisquam quae ex enim amet, expedita a omnis repellat placeat quia molestias possimus provident dolorum alias. Atque, eligendi? Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic facere reiciendis tempore odio sapiente in similique pariatur amet totam? Odit placeat vel magni voluptas officia quisquam repudiandae beatae odio reiciendis.",
+            "developer": "David Ferrer",
+            "editor": "Foo Bar",
+            "classification_esrb": "M17+",
             "price": 0,
+            "discount_percent": 0,
             "minimum_requirements": {
                 "processor": "Intel Core i5 or higher",
                 "os": "Windows",
@@ -190,6 +267,13 @@
                 "https://images.unsplash.com/photo-1562229125-6d6075419a22?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1074&q=80",
                 "https://images.unsplash.com/photo-1511882150382-421056c89033?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1471&q=80",
                 "https://images.unsplash.com/photo-1511512578047-dfb367046420?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1471&q=80"
+            ],
+            "reviews": [
+                {
+                    "id": 1,
+                    "date_review": "",
+                    "review": "" 
+                }
             ]
         },
         {
@@ -200,7 +284,14 @@
                 "People",
                 "Relationships"
             ],
+            "version": "1.0.0",
+            "release_date": "2021-01-31",
+            "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit dolores, quas obcaecati delectus in nobis, iure est similique atque laborum cupiditate? Eveniet reiciendis eligendi labore quos, alias aliquid consequuntur dolorum! Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, molestiae? Esse eius, quisquam quae ex enim amet, expedita a omnis repellat placeat quia molestias possimus provident dolorum alias. Atque, eligendi? Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic facere reiciendis tempore odio sapiente in similique pariatur amet totam? Odit placeat vel magni voluptas officia quisquam repudiandae beatae odio reiciendis.",
+            "developer": "David Ferrer",
+            "editor": "Foo Bar",
+            "classification_esrb": "M17+",
             "price": 5000,
+            "discount_percent": 45,
             "minimum_requirements": {
                 "processor": "Intel Core i5 or higher",
                 "os": "Windows",
@@ -222,6 +313,13 @@
                 "https://images.unsplash.com/photo-1555680202-c86f0e12f086?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80",
                 "https://images.unsplash.com/photo-1598550476439-6847785fcea6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
                 "https://images.unsplash.com/photo-1627856014754-2907e2355d34?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1447&q=80"
+            ],
+            "reviews": [
+                {
+                    "id": 1,
+                    "date_review": "",
+                    "review": "" 
+                }
             ]
         },
         {
@@ -232,7 +330,14 @@
                 "Computer",
                 "Zone"
             ],
+            "version": "1.0.0",
+            "release_date": "2021-01-31",
+            "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit dolores, quas obcaecati delectus in nobis, iure est similique atque laborum cupiditate? Eveniet reiciendis eligendi labore quos, alias aliquid consequuntur dolorum! Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, molestiae? Esse eius, quisquam quae ex enim amet, expedita a omnis repellat placeat quia molestias possimus provident dolorum alias. Atque, eligendi? Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic facere reiciendis tempore odio sapiente in similique pariatur amet totam? Odit placeat vel magni voluptas officia quisquam repudiandae beatae odio reiciendis.",
+            "developer": "David Ferrer",
+            "editor": "Foo Bar",
+            "classification_esrb": "M17+",
             "price": 321,
+            "discount_percent": 22,
             "minimum_requirements": {
                 "processor": "Intel Core i5 or higher",
                 "os": "Windows",
@@ -254,6 +359,13 @@
                 "https://images.unsplash.com/photo-1627855437292-7efeee237b12?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=985&q=80",
                 "https://images.unsplash.com/photo-1486572788966-cfd3df1f5b42?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1472&q=80",
                 "https://images.unsplash.com/photo-1542751371-adc38448a05e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80"
+            ],
+            "reviews": [
+                {
+                    "id": 1,
+                    "date_review": "",
+                    "review": "" 
+                }
             ]
         },
         {
@@ -264,8 +376,15 @@
                 "Movie", 
                 "Shooter", 
                 "Battle royal"
-            ], 
+            ],
+            "version": "1.0.0",
+            "release_date": "2021-01-31",
+            "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit dolores, quas obcaecati delectus in nobis, iure est similique atque laborum cupiditate? Eveniet reiciendis eligendi labore quos, alias aliquid consequuntur dolorum! Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, molestiae? Esse eius, quisquam quae ex enim amet, expedita a omnis repellat placeat quia molestias possimus provident dolorum alias. Atque, eligendi? Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic facere reiciendis tempore odio sapiente in similique pariatur amet totam? Odit placeat vel magni voluptas officia quisquam repudiandae beatae odio reiciendis.", 
+            "developer": "David Ferrer",
+            "editor": "Foo Bar",
+            "classification_esrb": "M17+",
             "price": 1800,
+            "discount_percent": 50,
             "minimum_requirements": {
                 "processor": "Intel Core i5 or higher",
                 "os": "Windows",
@@ -287,6 +406,13 @@
                 "https://images.unsplash.com/photo-1545859818-2ee8b3610952?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80",
                 "https://images.unsplash.com/photo-1541400117672-40497d39cee5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1471&q=80",
                 "https://images.unsplash.com/photo-1543322054-ac0ac97f1ddf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1333&q=80"
+            ],
+            "reviews": [
+                {
+                    "id": 1,
+                    "date_review": "",
+                    "review": "" 
+                }
             ]
         },
         {
@@ -296,7 +422,14 @@
                 "Tv Show", 
                 "Internet"
             ],
+            "version": "1.0.0",
+            "release_date": "2021-01-31",
+            "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit dolores, quas obcaecati delectus in nobis, iure est similique atque laborum cupiditate? Eveniet reiciendis eligendi labore quos, alias aliquid consequuntur dolorum! Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, molestiae? Esse eius, quisquam quae ex enim amet, expedita a omnis repellat placeat quia molestias possimus provident dolorum alias. Atque, eligendi? Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic facere reiciendis tempore odio sapiente in similique pariatur amet totam? Odit placeat vel magni voluptas officia quisquam repudiandae beatae odio reiciendis.",
+            "developer": "David Ferrer",
+            "editor": "Foo Bar",
+            "classification_esrb": "M17+",
             "price": 0,
+            "discount_percent": 0,
             "minimum_requirements": {
                 "processor": "Intel Core i5 or higher",
                 "os": "Windows",
@@ -318,6 +451,13 @@
                 "https://images.unsplash.com/photo-1562229125-6d6075419a22?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1074&q=80",
                 "https://images.unsplash.com/photo-1511882150382-421056c89033?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1471&q=80",
                 "https://images.unsplash.com/photo-1511512578047-dfb367046420?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1471&q=80"
+            ],
+            "reviews": [
+                {
+                    "id": 1,
+                    "date_review": "",
+                    "review": "" 
+                }
             ]
         },
         {
@@ -328,7 +468,14 @@
                 "People",
                 "Relationships"
             ],
+            "version": "1.0.0",
+            "release_date": "2021-01-31",
+            "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit dolores, quas obcaecati delectus in nobis, iure est similique atque laborum cupiditate? Eveniet reiciendis eligendi labore quos, alias aliquid consequuntur dolorum! Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, molestiae? Esse eius, quisquam quae ex enim amet, expedita a omnis repellat placeat quia molestias possimus provident dolorum alias. Atque, eligendi? Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic facere reiciendis tempore odio sapiente in similique pariatur amet totam? Odit placeat vel magni voluptas officia quisquam repudiandae beatae odio reiciendis.",
+            "developer": "David Ferrer",
+            "editor": "Foo Bar",
+            "classification_esrb": "M17+",
             "price": 5000,
+            "discount_percent": 33,
             "minimum_requirements": {
                 "processor": "Intel Core i5 or higher",
                 "os": "Windows",
@@ -350,6 +497,13 @@
                 "https://images.unsplash.com/photo-1555680202-c86f0e12f086?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80",
                 "https://images.unsplash.com/photo-1598550476439-6847785fcea6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
                 "https://images.unsplash.com/photo-1627856014754-2907e2355d34?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1447&q=80"
+            ],
+            "reviews": [
+                {
+                    "id": 1,
+                    "date_review": "",
+                    "review": "" 
+                }
             ]
         },
         {
@@ -360,7 +514,14 @@
                 "Computer",
                 "Zone"
             ],
+            "version": "1.0.0",
+            "release_date": "2021-01-31",
+            "description": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit dolores, quas obcaecati delectus in nobis, iure est similique atque laborum cupiditate? Eveniet reiciendis eligendi labore quos, alias aliquid consequuntur dolorum! Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, molestiae? Esse eius, quisquam quae ex enim amet, expedita a omnis repellat placeat quia molestias possimus provident dolorum alias. Atque, eligendi? Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic facere reiciendis tempore odio sapiente in similique pariatur amet totam? Odit placeat vel magni voluptas officia quisquam repudiandae beatae odio reiciendis.",
+            "developer": "David Ferrer",
+            "editor": "Foo Bar",
+            "classification_esrb": "M17+",
             "price": 321,
+            "discount_percent": 0,
             "minimum_requirements": {
                 "processor": "Intel Core i5 or higher",
                 "os": "Windows",
@@ -382,6 +543,13 @@
                 "https://images.unsplash.com/photo-1627855437292-7efeee237b12?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=985&q=80",
                 "https://images.unsplash.com/photo-1486572788966-cfd3df1f5b42?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1472&q=80",
                 "https://images.unsplash.com/photo-1542751371-adc38448a05e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80"
+            ],
+            "reviews": [
+                {
+                    "id": 1,
+                    "date_review": "",
+                    "review": "" 
+                }
             ]
         }
     ],

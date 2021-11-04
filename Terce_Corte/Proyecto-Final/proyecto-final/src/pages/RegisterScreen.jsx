@@ -39,7 +39,7 @@ const RegisterScreen = () => {
         <div className="wrapper-form animate__animated animate__fadeInUp">
             <div className="layer">
                 <form onSubmit={handleRegister} className="col-md-6 col-sm-12 h-form">
-                    <h1 className="title-form mb-4">Create an Account</h1>
+                    <h1 className="title-form mb-4"><i className="bi bi-bezier2"></i> Create an Account</h1>
 
                     <div className="form-floating">
                         <input type="text" className="form-control input my-3 textfield" id="floatingInput" name="firstName" value={firstName} onChange={handleChange} autoComplete="off" placeholder=" " />

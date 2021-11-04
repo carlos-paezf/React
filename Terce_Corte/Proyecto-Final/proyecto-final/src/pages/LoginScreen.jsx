@@ -37,7 +37,7 @@ const LoginScreen = () => {
         <div className="wrapper-form animate__animated animate__fadeInUp">
             <div className="layer">
                 <form onSubmit={handleEmailLogin} className="col-md-6 col-sm-12 h-form">
-                    <h1 className="title-form mb-4">Log in to your Account</h1>
+                    <h1 className="title-form mb-4"><i className="bi bi-bezier2"></i> Log in to your Account</h1>
 
                     <div className="form-floating">
                         <input type="email" className="form-control input my-3 textfield" id="floatingInput" name="email" value={email} onChange={handleChange} autoComplete="off" placeholder=" " />

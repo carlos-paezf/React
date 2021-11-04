@@ -1,0 +1,33 @@
+footer {
+    position: absolute;
+    bottom: -250px;
+}
+
+.footer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    height: 250px;
+    color: gray;
+
+    .about {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        font-size: 15px;
+
+        p {
+            padding: 0 50px;
+        }
+
+        i {
+            padding: 0 30px;
+            border-left: 1px solid gray;
+            border-right: 1px solid gray;
+        }
+    }
+}
