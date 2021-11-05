@@ -1,8 +1,13 @@
 import React, { useState } from 'react'
 import GoogleButton from 'react-google-button'
 import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { emailAndPasswordLogin, googleLogin } from '../actions/auth'
 
 const LoginScreen = () => {
+
+    const dispatch = useDispatch()
+
     const [data, setData] = useState({
         email: '',
         password: ''
@@ -22,6 +27,9 @@ const LoginScreen = () => {
 
     const handleEmailLogin = (e) => {
         e.preventDefault()
+        if (email.trim() === '' || !email.trim().includes('@')) return
+        if (password.trim().length < 8) return
+        dispatch(emailAndPasswordLogin(email, password))
     }
 
     const handleShowPassword = () => {
@@ -30,7 +38,7 @@ const LoginScreen = () => {
 
 
     const handleGoogleLogin = () => {
-        console.log('Inicio de sesión con google');
+        dispatch(googleLogin())
     }
 
     return (
@@ -46,13 +54,13 @@ const LoginScreen = () => {
                     <div className="form-floating group my-3">
                         <input type={showPassword ? "text" : "password"} className="form-control input my-3 textfield" id="floatingInput" name="password" value={password} onChange={handleChange} autoComplete="off" placeholder=" " />
                         <label className="placeholder">Password</label>
-                        <button className="password-revealer" onClick={handleShowPassword}>
+                        <p className="password-revealer" onClick={handleShowPassword}>
                             {
                                 showPassword
                                     ? <i className="bi bi-eye-slash"></i>
                                     : <i className="bi bi-eye"></i>
                             }
-                        </button>
+                        </p>
                     </div>
                     
                     <button className="w-100 my-3 btn btn-lg btn-primary" type="submit">Sign in</button>

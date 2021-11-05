@@ -5,6 +5,7 @@ import Sidebar from '../components/Sidebar'
 import GameDetail from '../pages/GameDetail'
 import GameScreen from '../pages/GameScreen'
 import HomeScreen from '../pages/HomeScreen'
+import ShopScreen from '../pages/ShopScreen'
 
 const PrincipalRouter = () => {
     return (
@@ -14,7 +15,7 @@ const PrincipalRouter = () => {
                 <Route exact path="/home" component={HomeScreen} />
                 <Route exact path="/games" component={GameScreen} />
                 <Route exact path="/games/:idGame" component={GameDetail} />
-                <Route exact path="/shop" />
+                <Route exact path="/shop" component={ShopScreen}/>
                 <Route exact path="/statistics" />
                 <Route exact path="/settings" />
                 <Redirect to="/home" />

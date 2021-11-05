@@ -1,7 +1,12 @@
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { register } from '../actions/auth'
 
 const RegisterScreen = () => {
+
+    const dispatch = useDispatch()
+
     const [data, setData] = useState({
         firstName: '',
         lastName: '',
@@ -25,6 +30,15 @@ const RegisterScreen = () => {
 
     const handleRegister = (e) => {
         e.preventDefault()
+        let username = `${firstName} ${lastName}`
+        if (username.trim() === '') return
+        if (firstName.trim() === '' || lastName.trim() === '') return
+        if (email.trim() === '' || !email.trim().includes('@')) return
+        if (password.trim().length < 8) return
+        else {
+            if (password.trim() !== confirmPassword.trim()) return
+        }
+        dispatch(register(email, username, password))
     }
 
     const handleShowPassword = () => {
@@ -56,24 +70,24 @@ const RegisterScreen = () => {
                     <div className="form-floating group my-3">
                         <input type={showPassword ? "text" : "password"} className="form-control input textfield" id="floatingPassword" name="password" value={password} onChange={handleChange} autoComplete="off" placeholder=" " />
                         <label className="placeholder" htmlFor="floatingPassword">Password</label>
-                        <button className="password-revealer" onClick={handleShowPassword}>
+                        <p className="password-revealer" onClick={handleShowPassword}>
                             {
                                 showPassword
                                     ? <i className="bi bi-eye-slash"></i>
                                     : <i className="bi bi-eye"></i>
                             }
-                        </button>
+                        </p>
                     </div>
                     <div className="form-floating group my-3">
                         <input type={showConfirmPassword ? "text" : "password"} className="form-control input textfield" id="floatingPassword" name="confirmPassword" value={confirmPassword} onChange={handleChange} autoComplete="off" placeholder=" " />
                         <label className="placeholder" htmlFor="floatingPassword">Confirm Password</label>
-                        <button className="password-revealer" onClick={handleShowConfirmPassword}>
+                        <p className="password-revealer" onClick={handleShowConfirmPassword}>
                             {
                                 showConfirmPassword
                                     ? <i class="bi bi-eye-slash"></i>
                                     : <i class="bi bi-eye"></i>
                             }
-                        </button>
+                        </p>
                     </div>
 
                     <button className="w-100 my-3 btn btn-lg btn-primary" type="submit">Register</button>

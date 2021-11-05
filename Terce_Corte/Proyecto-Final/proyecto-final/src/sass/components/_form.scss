@@ -9,7 +9,7 @@
 
 .wrapper-form {
     width: 100%;
-    height: 100%;
+    height: 100vh;
     text-align: center;
     z-index: 100;
     padding: 10px 0;
@@ -104,6 +104,12 @@
 }
 
 .password-revealer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: -5px;
+    height: 70%;
+    width: 6%;
     background-color: transparent;
     color: rgba(255, 255, 255, 0.596);
     border: 1px solid rgb(146, 139, 139);
