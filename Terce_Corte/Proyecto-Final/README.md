@@ -74,10 +74,11 @@ Lo  más importante es que el jugador puede seleccionar los juegos que desea com
   - `yarn add react-google-button`
   - `yarn add sass`
   - `yarn add redux-thunk`
+  - `yarn add react-toastify`
 
 - Instalación global de las librerías:
   
-  `yarn add react-router-dom redux react-redux firebase react-google-button sass redux-thunk`
+  `yarn add react-router-dom redux react-redux firebase react-google-button sass redux-thunk react-toastify`
 
 - Animate CSS
   

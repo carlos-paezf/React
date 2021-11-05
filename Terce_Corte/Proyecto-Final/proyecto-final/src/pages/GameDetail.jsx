@@ -94,7 +94,7 @@ const GameDetail = ({ history }) => {
                 <div className="h-game">
                     <img className="h-b-image animate__animated animate__fadeInLeft" src={url[getRandomURL(0, url.length)]} alt="" />
                     <div className="h-content">
-                        <label className="go-back" onClick={handleBack}><i class="bi bi-arrow-left"></i> Go back</label>
+                        <label className="go-back" onClick={handleBack}><i className="bi bi-arrow-left"></i> Go back</label>
                         <h1>{name}</h1>
                         <section className="tags">
                             {
@@ -119,9 +119,9 @@ const GameDetail = ({ history }) => {
                     <h4 className="subtitle">Some Screenshots</h4>
 
                     <div className="c-g-images">
-                        <div className="i-prev"><i class="bi bi-chevron-left" onClick={handlePrev}></i></div>
+                        <div className="i-prev"><i className="bi bi-chevron-left" onClick={handlePrev}></i></div>
                         <img className="animate__animated animate__fadeIn" src={url[index]} alt="" />
-                        <div className="i-next"><i class="bi bi-chevron-right" onClick={handleNext}></i></div>
+                        <div className="i-next"><i className="bi bi-chevron-right" onClick={handleNext}></i></div>
                     </div>
                     
                     <div className="min-req">
@@ -157,7 +157,7 @@ const GameDetail = ({ history }) => {
                             (price > 0 && discount_percent > 0)
                                 ? <div className="discount-display">
                                     <p className="discount-value">{`${discount_percent}% Off`}</p>
-                                    <p className="discount-date"><i class="bi bi-clock-history"></i> This offert ends in <b>1 day</b>!</p>
+                                    <p className="discount-date"><i className="bi bi-clock-history"></i> This offert ends in <b>1 day</b>!</p>
                                 </div>
                                 : ``
                         }

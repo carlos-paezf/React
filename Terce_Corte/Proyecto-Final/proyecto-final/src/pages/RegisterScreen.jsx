@@ -56,15 +56,15 @@ const RegisterScreen = () => {
                     <h1 className="title-form mb-4"><i className="bi bi-bezier2"></i> Create an Account</h1>
 
                     <div className="form-floating">
-                        <input type="text" className="form-control input my-3 textfield" id="floatingInput" name="firstName" value={firstName} onChange={handleChange} autoComplete="off" placeholder=" " />
+                        <input type="text" className="form-control input my-3 textfield" id="floatingInputFirstName" name="firstName" value={firstName} onChange={handleChange} autoComplete="off" placeholder=" " />
                         <label className="placeholder">First Name</label>
                     </div>
                     <div className="form-floating">
-                        <input type="text" className="form-control input my-3 textfield" id="floatingInput" name="lastName" value={lastName} onChange={handleChange} autoComplete="off" placeholder=" " />
+                        <input type="text" className="form-control input my-3 textfield" id="floatingInputLastName" name="lastName" value={lastName} onChange={handleChange} autoComplete="off" placeholder=" " />
                         <label className="placeholder">Last Name</label>
                     </div>
                     <div className="form-floating">
-                        <input type="email" className="form-control input my-3 textfield" id="floatingInput" name="email" value={email} onChange={handleChange} autoComplete="off" placeholder=" " />
+                        <input type="email" className="form-control input my-3 textfield" id="floatingInputEmail" name="email" value={email} onChange={handleChange} autoComplete="off" placeholder=" " />
                         <label className="placeholder" htmlFor="floatingInput">Email address</label>
                     </div>
                     <div className="form-floating group my-3">
@@ -79,13 +79,13 @@ const RegisterScreen = () => {
                         </p>
                     </div>
                     <div className="form-floating group my-3">
-                        <input type={showConfirmPassword ? "text" : "password"} className="form-control input textfield" id="floatingPassword" name="confirmPassword" value={confirmPassword} onChange={handleChange} autoComplete="off" placeholder=" " />
+                        <input type={showConfirmPassword ? "text" : "password"} className="form-control input textfield" id="floatingConfirmPassword" name="confirmPassword" value={confirmPassword} onChange={handleChange} autoComplete="off" placeholder=" " />
                         <label className="placeholder" htmlFor="floatingPassword">Confirm Password</label>
                         <p className="password-revealer" onClick={handleShowConfirmPassword}>
                             {
                                 showConfirmPassword
-                                    ? <i class="bi bi-eye-slash"></i>
-                                    : <i class="bi bi-eye"></i>
+                                    ? <i className="bi bi-eye-slash"></i>
+                                    : <i className="bi bi-eye"></i>
                             }
                         </p>
                     </div>

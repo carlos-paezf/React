@@ -3,6 +3,8 @@ import GoogleButton from 'react-google-button'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { emailAndPasswordLogin, googleLogin } from '../actions/auth'
+// import { ToastContainer } from 'react-toastify'
+// import "react-toastify/dist/ReactToastify.css"
 
 const LoginScreen = () => {
 
@@ -48,11 +50,11 @@ const LoginScreen = () => {
                     <h1 className="title-form mb-4"><i className="bi bi-bezier2"></i> Log in to your Account</h1>
 
                     <div className="form-floating">
-                        <input type="email" className="form-control input my-3 textfield" id="floatingInput" name="email" value={email} onChange={handleChange} autoComplete="off" placeholder=" " />
+                        <input type="email" className="form-control input my-3 textfield" id="floatingInputEmail" name="email" value={email} onChange={handleChange} autoComplete="off" placeholder=" " />
                         <label className="placeholder">Email address</label>
                     </div>
                     <div className="form-floating group my-3">
-                        <input type={showPassword ? "text" : "password"} className="form-control input my-3 textfield" id="floatingInput" name="password" value={password} onChange={handleChange} autoComplete="off" placeholder=" " />
+                        <input type={showPassword ? "text" : "password"} className="form-control input my-3 textfield" id="floatingInputPassword" name="password" value={password} onChange={handleChange} autoComplete="off" placeholder=" " />
                         <label className="placeholder">Password</label>
                         <p className="password-revealer" onClick={handleShowPassword}>
                             {
@@ -78,6 +80,8 @@ const LoginScreen = () => {
             <label className="text-muted my-3">Create an Account <Link to="/auth/register">here</Link></label>
 
             <p className="mt-2 mb-3 text-muted">&copy; 2021–2021</p>
+
+            {/* <ToastContainer autoClose={2000} /> */}
         </div>
     )
 }

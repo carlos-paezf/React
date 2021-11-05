@@ -1,7 +1,15 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { Link, NavLink } from 'react-router-dom'
+import { logout } from '../actions/auth'
 
 const Sidebar = () => {
+    const dispatch = useDispatch()
+
+    const handleLogout = () => {
+        dispatch(logout())
+    }
+
 
     return (
         <aside className="sidebar">
@@ -41,8 +49,27 @@ const Sidebar = () => {
                 </li>
             </ul>
             <div className="user">
-                <i className="bi bi-person"></i>
-                <label className="tooltip">User</label>
+                <div className="user-link">
+                    <NavLink to="/user/config" activeClassName="active-option">
+                        <i className="bi bi-person"></i>
+                    </NavLink>
+                    <div className="tooltip-user">
+                        <ul className="user-menu">
+                            <li>Shopping cart</li>
+                            <li>Favorites</li>
+                        </ul>
+                        <ul className="user-menu">
+                            <li>Payment methods</li>
+                            <li>Shopping history</li>
+                        </ul>
+                        <ul className="user-menu">
+                            <li><Link to="/user/config" className='url-user'>Edit profile</Link></li>
+                        </ul>
+                        <ul className="user-menu">
+                            <li onClick={handleLogout}>Logout</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </aside>
     )

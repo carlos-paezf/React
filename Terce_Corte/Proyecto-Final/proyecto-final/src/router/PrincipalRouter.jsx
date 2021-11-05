@@ -6,6 +6,7 @@ import GameDetail from '../pages/GameDetail'
 import GameScreen from '../pages/GameScreen'
 import HomeScreen from '../pages/HomeScreen'
 import ShopScreen from '../pages/ShopScreen'
+import UserSettings from '../pages/UserSettings'
 
 const PrincipalRouter = () => {
     return (
@@ -18,6 +19,7 @@ const PrincipalRouter = () => {
                 <Route exact path="/shop" component={ShopScreen}/>
                 <Route exact path="/statistics" />
                 <Route exact path="/settings" />
+                <Route exact path="/user/config" component={UserSettings} />
                 <Redirect to="/home" />
             </Switch>
             <Footer />

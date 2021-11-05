@@ -89,26 +89,82 @@
         padding: 10px 0;
         text-align: center;
 
-        .tooltip {
-            display: inline-block;
-            position: absolute;
+        .user-link {
             color: white;
-            font-size: 15px;
-            justify-content: center;
-            left: 85px;
-            bottom: 20px;
-            opacity: 0;
-        }
+            position: relative;
+            
+            i {
+                color: white;
+            }
 
+            .tooltip-user {
+                position: absolute;
+                width: 250px;
+                background-color: black;
+                left: calc(100%  +  15px);
+                bottom: 0;
+                border-radius: 10px;
+                box-shadow: 
+                    rgba(255, 255, 255, 0.1) 0 4px 16px
+                    rgba(255, 255, 255, 0.05) 0 8px 32px;
+                opacity: 0;
+                transform: scale(0);
+                transform-origin: bottom left;
+                transition: transform .4s, opacity .2s;
+
+                .user-menu {
+                    list-style: none;
+                    padding: 5px 0;
+                    margin: 0;
+                    border-radius: 10px;
+                    border-bottom: 1px solid rgba(255, 255, 255, 0.466);
+
+                    .url-user {
+                        text-decoration: none;
+                        color: white;
+                    }
+
+                    li {
+                        padding: 8px 30px;
+                        font-size: 17px;
+                        cursor: pointer;
+                        margin: 5px;
+                        color: white;
+                        text-decoration: none;
+
+                        &:hover {
+                            background-color: rgba(211, 208, 208, 0.219);
+                        }
+                    }
+                }
+            }
+        }
+        
         &:hover {
-            background-color: rgba(0, 0, 0, 0.712);
-            transform: scale(1.1);
+            background-color: rgba(56, 55, 55, 0.712);
             transition: background-color 0.5s;
             color: rgb(173, 173, 173);
 
-            .tooltip {
-                opacity: 1;
-                transition: opacity .5s;
+            .user-link {
+
+                .tooltip-user {
+                    opacity: 1;
+                    z-index: 0;
+                    transform: scale(1);
+                    transition: opacity .2s, transform .1s;
+
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        bottom: 10px;
+                        left: -7px;
+                        z-index: -10;
+                        width: 20px;
+                        height: 20px;
+                        background-color: black;
+                        transform: rotate(45deg);
+                    }
+                }
             }
         }
     }
