@@ -30,7 +30,7 @@ const RegisterScreen = () => {
 
     const handleRegister = (e) => {
         e.preventDefault()
-        let username = `${firstName} ${lastName}`
+        let username = `${firstName.toUpperCase()} ${lastName.toUpperCase()}`
         if (username.trim() === '') return
         if (firstName.trim() === '' || lastName.trim() === '') return
         if (email.trim() === '' || !email.trim().includes('@')) return
@@ -50,8 +50,8 @@ const RegisterScreen = () => {
     }
 
     return (
-        <div className="wrapper-form animate__animated animate__fadeInUp">
-            <div className="layer">
+        <div className="wrapper-form animate__animated animate__fadeIn">
+            <div className="layer animate__animated animate__fadeIn">
                 <form onSubmit={handleRegister} className="col-md-6 col-sm-12 h-form">
                     <h1 className="title-form mb-4"><i className="bi bi-bezier2"></i> Create an Account</h1>
 
@@ -94,9 +94,9 @@ const RegisterScreen = () => {
                 </form>
             </div>
 
-            <label className="text-muted my-3">Log in an Account <Link to="/auth/login">here</Link></label>
+            <label className="text-muted my-3 animate__animated animate__fadeInUp">Log in an Account <Link to="/auth/login">here</Link></label>
 
-            <p className="mt-2 mb-3 text-muted">&copy; 2021–2021</p>
+            <p className="mt-2 mb-3 text-muted animate__animated animate__fadeInUp">&copy; 2021–2021</p>
         </div>
     )
 }

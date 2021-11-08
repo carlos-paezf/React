@@ -44,8 +44,8 @@ const LoginScreen = () => {
     }
 
     return (
-        <div className="wrapper-form animate__animated animate__fadeInUp">
-            <div className="layer">
+        <div className="wrapper-form  animate__animated animate__fadeIn">
+            <div className="layer animate__animated animate__fadeIn">
                 <form onSubmit={handleEmailLogin} className="col-md-6 col-sm-12 h-form">
                     <h1 className="title-form mb-4"><i className="bi bi-bezier2"></i> Log in to your Account</h1>
 
@@ -77,9 +77,9 @@ const LoginScreen = () => {
                 <GoogleButton onClick={handleGoogleLogin} />
             </div>
 
-            <label className="text-muted my-3">Create an Account <Link to="/auth/register">here</Link></label>
+            <label className="text-muted my-3 animate__animated animate__fadeInUp">Create an Account <Link to="/auth/register">here</Link></label>
 
-            <p className="mt-2 mb-3 text-muted">&copy; 2021–2021</p>
+            <p className="mt-2 mb-3 text-muted animate__animated animate__fadeInUp">&copy; 2021–2021</p>
 
             {/* <ToastContainer autoClose={2000} /> */}
         </div>

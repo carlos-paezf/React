@@ -432,3 +432,66 @@ const AppRouter = () => {
     )
 }
 ```
+
+Por último para la función de logout, se dispone de un pequeño menú emergente sobre el icono del usuario, en el cuál aparecen diversas opciones, y una de ellas es la de logout. Simplemente debe pulsar sobre él y podra cerrar su sesión.
+
+```js
+import React from 'react'
+import { useDispatch } from 'react-redux'
+import { logout } from '../actions/auth'
+
+const Sidebar = () => {
+    const dispatch = useDispatch()
+
+    const handleLogout = () => {
+        dispatch(logout())
+    }
+
+    return (
+        ...
+        <li onClick={handleLogout}>Logout</li>
+        ...
+    )
+}
+```
+
+## React Toastify
+
+Gracias a la librería de React Toastify, podemos mostrar toast de alerta a nuestros usuarios, con el fin luego de acciones importantes, puedan observar un mensaje de finalización o de error en sus movimientos. Los toast se pueden mostrar de acuerdo al ciclo de vida de las acciones, en algunos casos podemos personalizar los mensajes de error de acuerdo a las excepciones atrapadas, o simplemente dejar un error generalizado. En estos momentos, para los métodos de auth, algunos tienen mensajes toast generalizados luego de esperar por una acción, atrapar una respuesta exitosa u obtener un error. Básicamente se aplican en cada ciclo de vida de las promesas.
+
+Para el siguiente caso, envolvemos el método de `signInWithPopup` dentro de un elemento `toast` con la propiedad `promise`, la acción a ejecutar es el ingreso a la plataforma mediante una cuenta de Google. Mientras dicha acción se ejecuta, aparece un toast diciendo `"Waiting for the choice of an account"`, cuando la promesa retorne una respuesta exitosa, el toast cambiara a decir: `"Success Login with Google"`, y en caso de error obtenemos el mensaje `"Action reject"`.
+
+```js
+import { toast } from 'react-toastify'
+
+export const googleLogin = () => {
+    return (dispatch) => {
+        toast.promise(
+            signInWithPopup(auth, googleAuthProvider)
+                .then(({ user }) => {
+                    dispatch(login(user.uid, user.displayName))
+                }),
+            {
+                pending: 'Waiting for the choice of an account ',
+                success: 'Success Login with Google',
+                error: 'Action reject'
+            }
+        )
+    }
+}
+```
+
+Para poder observar dichas toast en nuestra aplicación, debemos instanciar el componente para su renderizado dentro del archivo que especifica su alcance. En este caso, la auth sera en toda la aplicación, por lo tanto, se instancia el componente dentro del archivo `App.jsx`, además de establecer algunas propiedades para su visualización.
+
+```js
+import { ToastContainer } from 'react-toastify'
+import "react-toastify/dist/ReactToastify.css"
+
+const App = () => {
+    return (
+        ...
+        <ToastContainer autoClose={3000} theme='dark' />
+        ...
+    )
+}
+```

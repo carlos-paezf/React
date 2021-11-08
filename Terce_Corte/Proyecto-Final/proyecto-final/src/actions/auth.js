@@ -88,7 +88,7 @@ export const register = (email, username, password) => {
             {
                 promise: 'Wait a moment',
                 success: 'Hi. Welcome!',
-                error: 'Email already in use'
+                error: 'Error in Register'
             }
         )
     }

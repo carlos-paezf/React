@@ -1,6 +1,7 @@
 import React from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import Footer from '../components/Footer'
+import Navbar from '../components/Navbar'
 import Sidebar from '../components/Sidebar'
 import GameDetail from '../pages/GameDetail'
 import GameScreen from '../pages/GameScreen'
@@ -11,6 +12,7 @@ import UserSettings from '../pages/UserSettings'
 const PrincipalRouter = () => {
     return (
         <>
+            <Navbar />
             <Sidebar />
             <Switch>
                 <Route exact path="/home" component={HomeScreen} />

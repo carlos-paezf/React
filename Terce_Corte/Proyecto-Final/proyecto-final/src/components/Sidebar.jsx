@@ -14,7 +14,7 @@ const Sidebar = () => {
     return (
         <aside className="sidebar">
             <div className="logo">
-                <i className="bi bi-bezier2"></i>
+                <i className="bi bi-list"></i>
             </div>
             <ul className="options">
                 <li>
