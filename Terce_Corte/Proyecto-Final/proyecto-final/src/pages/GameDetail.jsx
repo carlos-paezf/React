@@ -52,7 +52,7 @@ export const TableRequirements = ({ bcolor, name, processor, os, ram, gpu }) => 
 const GameDetail = ({ history }) => {
     const { idGame } = useParams()
 
-    const { name, genres, price, version, release_date, description, developer, editor, classification_esrb, discount_percent, minimum_requirements, recommended_requirements, url } = games.games.find(g => g.id === parseInt(idGame))
+    const { name, genres, price, size_mb, version, release_date, description, developer, editor, classification_esrb, discount_percent, minimum_requirements, recommended_requirements, url } = games.games.find(g => g.id === parseInt(idGame))
 
     const [index, setIndex] = useState(0)
 
@@ -116,6 +116,9 @@ const GameDetail = ({ history }) => {
                     <h4 className="subtitle">Version</h4>
                     <p>{version}</p>
 
+                    <h4 className="subtitle">Size in GigaByte (GB)</h4>
+                    <p>{(size_mb / 1024).toFixed(2)} GB</p>
+
                     <h4 className="subtitle">Some Screenshots</h4>
 
                     <div className="c-g-images">
@@ -145,7 +148,7 @@ const GameDetail = ({ history }) => {
                                         : `Free Product`
                                 }
                             </h2>
-                            <h6 className="original-price animate__animated animate__hinge animate__delay-2s">
+                            <h6 className="original-price animate__animated animate__pulse">
                                 {
                                     (price > 0 && discount_percent > 0)
                                         ? `${price} US$`

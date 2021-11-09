@@ -1,9 +1,7 @@
-import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from '@firebase/auth'
-import { googleAuthProvider } from '../firebase/config'
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from '@firebase/auth'
+import { auth, googleAuthProvider } from '../firebase/config'
 import { types } from '../types/types'
 import { toast } from 'react-toastify'
-
-const auth = getAuth()
 
 
 export const login = (uid, displayName) => {

@@ -3,8 +3,6 @@ import GoogleButton from 'react-google-button'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { emailAndPasswordLogin, googleLogin } from '../actions/auth'
-// import { ToastContainer } from 'react-toastify'
-// import "react-toastify/dist/ReactToastify.css"
 
 const LoginScreen = () => {
 
@@ -80,8 +78,6 @@ const LoginScreen = () => {
             <label className="text-muted my-3 animate__animated animate__fadeInUp">Create an Account <Link to="/auth/register">here</Link></label>
 
             <p className="mt-2 mb-3 text-muted animate__animated animate__fadeInUp">&copy; 2021–2021</p>
-
-            {/* <ToastContainer autoClose={2000} /> */}
         </div>
     )
 }

@@ -5,34 +5,44 @@ import AuthRouter from './AuthRouter'
 import PrivateRouter from './PrivateRouter'
 import PrincipalRouter from './PrincipalRouter'
 import { useDispatch } from 'react-redux'
-import { getAuth, onAuthStateChanged } from '@firebase/auth'
+import { onAuthStateChanged } from '@firebase/auth'
 import { login } from '../actions/auth'
+import { auth } from '../firebase/config'
+import LoadingScreen from '../pages/LoadingScreen'
 
 const AppRouter = () => {
 
-    const auth = getAuth()
     const dispatch = useDispatch()
 
     const [log, setLog] = useState(false)
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
             if (user) {
                 dispatch(login(user.uid, user.displayName))
                 setLog(true)
+                setLoading(false)
             } else {
                 setLog(false)
+                setLoading(false)
             }
         })
-    }, [auth, dispatch])
+    }, [dispatch])
 
     return (
-        <Router>
-            <Switch>
-                <PublicRouter path="/auth" auth={log} component={AuthRouter} />
-                <PrivateRouter path="/" auth={log} component={PrincipalRouter} />
-            </Switch>
-        </Router>
+        <>
+            {
+                loading
+                    ? <LoadingScreen />
+                    : <Router>
+                        <Switch>
+                            <PublicRouter path="/auth" auth={log} component={AuthRouter} />
+                            <PrivateRouter path="/" auth={log} component={PrincipalRouter} />
+                        </Switch>
+                    </Router>
+            }
+        </>
     )
 }
 

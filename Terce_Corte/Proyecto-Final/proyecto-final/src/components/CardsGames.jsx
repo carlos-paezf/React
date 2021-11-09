@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 export const CardGame = (props) => {
 
-    const { id, name, genres, price, discount_percent, url } = props
+    const { id, name, genres, price, discount_percent, size_mb, url } = props
 
     const getRandomURL = (min, max) => {
         return Math.floor(Math.random() * (max - min)) + min
@@ -28,7 +28,7 @@ export const CardGame = (props) => {
             <div className="description-game">
                 <h3 className="game-name">{name}</h3>
                 <small>{genres.join(', ')}</small>
-                <p>
+                <p id="price">
                     {
                         price > 0
                             ? (discount_percent > 0
@@ -37,6 +37,7 @@ export const CardGame = (props) => {
                             : `Free Product`
                     }
                 </p>
+                <p id="size">{(size_mb / 1024).toFixed(2)} GB</p>
                 <Link to={`/games/${id}`}><button className="btn btn-dark">View more</button></Link>
             </div>
         </div>
