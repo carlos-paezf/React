@@ -3,6 +3,7 @@ import GoogleButton from 'react-google-button'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { emailAndPasswordLogin, googleLogin } from '../actions/auth'
+import { toast } from 'react-toastify'
 
 const LoginScreen = () => {
 
@@ -27,8 +28,12 @@ const LoginScreen = () => {
 
     const handleEmailLogin = (e) => {
         e.preventDefault()
-        if (email.trim() === '' || !email.trim().includes('@')) return
-        if (password.trim().length < 8) return
+        if (email.trim() === '' || !email.trim().includes('@')) {
+            return toast('Invalid Email', {type: 'warning', autoClose: 2000})
+        }
+        if (password.trim().length < 8) {
+            return toast('Password very small', {type: 'warning', autoClose: 2000})
+        }
         dispatch(emailAndPasswordLogin(email, password))
     }
 

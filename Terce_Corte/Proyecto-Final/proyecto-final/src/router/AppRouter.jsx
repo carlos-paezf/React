@@ -9,6 +9,8 @@ import { onAuthStateChanged } from '@firebase/auth'
 import { login } from '../actions/auth'
 import { auth } from '../firebase/config'
 import LoadingScreen from '../pages/LoadingScreen'
+import { loadUsers } from '../helpers/loadData'
+import { userRead } from '../actions/user'
 
 const AppRouter = () => {
 
@@ -18,10 +20,12 @@ const AppRouter = () => {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        onAuthStateChanged(auth, (user) => {
+        onAuthStateChanged(auth, async (user) => {
             if (user) {
                 dispatch(login(user.uid, user.displayName))
                 setLog(true)
+                const userData = await loadUsers(user.uid)
+                dispatch(userRead(userData))
                 setLoading(false)
             } else {
                 setLog(false)

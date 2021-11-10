@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { register } from '../actions/auth'
+import { toast } from 'react-toastify'
 
 const RegisterScreen = () => {
 
@@ -30,15 +31,26 @@ const RegisterScreen = () => {
 
     const handleRegister = (e) => {
         e.preventDefault()
-        let username = `${firstName.toUpperCase()} ${lastName.toUpperCase()}`
-        if (username.trim() === '') return
-        if (firstName.trim() === '' || lastName.trim() === '') return
-        if (email.trim() === '' || !email.trim().includes('@')) return
-        if (password.trim().length < 8) return
-        else {
-            if (password.trim() !== confirmPassword.trim()) return
+        if (firstName.trim() === '') {
+            return toast('This first name is empty', {type: 'warning', autoClose: 2000})
         }
-        dispatch(register(email, username, password))
+        if (lastName.trim() === '') {
+            return toast('This last name is empty', {type: 'warning', autoClose: 2000})
+        }
+        let username = `${firstName.toUpperCase()} ${lastName.toUpperCase()}`
+
+        if (email.trim() === '' || !email.trim().includes('@')) {
+            return toast('Invalid Email', {type: 'warning', autoClose: 2000})
+        }
+        if (password.trim().length < 8) {
+            return toast('Password very small', {type: 'warning', autoClose: 2000})
+        }
+        else {
+            if (password.trim() !== confirmPassword.trim()) {
+                return toast('Passwords do not match', {type: 'warning', autoClose: 2000})
+            }
+        }
+        dispatch(register(email, username, password, firstName, lastName))
     }
 
     const handleShowPassword = () => {

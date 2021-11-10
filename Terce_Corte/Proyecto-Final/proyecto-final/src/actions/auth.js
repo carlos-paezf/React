@@ -1,7 +1,8 @@
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from '@firebase/auth'
 import { auth, googleAuthProvider } from '../firebase/config'
-import { types } from '../types/types'
 import { toast } from 'react-toastify'
+import { types } from '../types/types'
+import { createUser } from './user'
 
 
 export const login = (uid, displayName) => {
@@ -21,6 +22,8 @@ export const googleLogin = () => {
             signInWithPopup(auth, googleAuthProvider)
                 .then(({ user }) => {
                     dispatch(login(user.uid, user.displayName))
+                    const dn = user.displayName.split(' ')
+                    dispatch(createUser(user.uid, dn[0], dn[2], user.email))
                 }),
                 // .catch((error) => {
                 //     toast.error('Error with Google Auth')
@@ -70,7 +73,7 @@ export const logout = () => {
 }
 
 
-export const register = (email, username, password) => {
+export const register = (email, username, password, firstName, lastName) => {
     return (dispatch) => {
         toast.promise(
         createUserWithEmailAndPassword(auth, email, password)
@@ -78,6 +81,7 @@ export const register = (email, username, password) => {
                 await updateProfile(auth.currentUser, { displayName: username })
                 toast.success('Success Register')
                 dispatch(login(user.uid, user.displayName))
+                dispatch(createUser(user.uid, firstName, lastName, email))
             }),
             // .catch(error => {
             //     toast.error('Error in Register')

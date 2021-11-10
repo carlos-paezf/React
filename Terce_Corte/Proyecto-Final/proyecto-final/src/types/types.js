@@ -2,6 +2,10 @@ export const types = {
     login: '[Auth] login',
     logout: '[Auth] logout',
 
+    userCreate: '[User] create',
+    userUpdate: '[User] update',
+    userRead: '[User] read',
+
     gameCreate: '[Game] create',
     gameAdd: '[Game] add',
     gameDelete: '[Game] delete',
