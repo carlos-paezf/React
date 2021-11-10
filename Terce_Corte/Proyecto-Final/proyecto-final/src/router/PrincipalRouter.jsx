@@ -19,8 +19,8 @@ const PrincipalRouter = () => {
                 <Route exact path="/games" component={GameScreen} />
                 <Route exact path="/games/:idGame" component={GameDetail} />
                 <Route exact path="/shop" component={ShopScreen}/>
-                <Route exact path="/statistics" />
                 <Route exact path="/settings" />
+                <Route exact path="/statistics" />
                 <Route exact path="/user/config" component={UserSettings} />
                 <Redirect to="/home" />
             </Switch>

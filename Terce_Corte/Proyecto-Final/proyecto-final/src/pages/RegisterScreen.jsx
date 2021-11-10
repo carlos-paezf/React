@@ -11,6 +11,7 @@ const RegisterScreen = () => {
     const [data, setData] = useState({
         firstName: '',
         lastName: '',
+        username: '',
         email: '',
         password: '',
         confirmPassword: ''
@@ -19,7 +20,7 @@ const RegisterScreen = () => {
     const [showPassword, setShowPassword] = useState(false)
     const [showConfirmPassword, setShowConfirmPassword] = useState(false)
 
-    const { firstName, lastName, email, password, confirmPassword } = data
+    const { firstName, lastName, username, email, password, confirmPassword } = data
 
     const handleChange = (e) => {
         const value = e.target.value
@@ -37,7 +38,10 @@ const RegisterScreen = () => {
         if (lastName.trim() === '') {
             return toast('This last name is empty', {type: 'warning', autoClose: 2000})
         }
-        let username = `${firstName.toUpperCase()} ${lastName.toUpperCase()}`
+
+        if (username.trim() === '') {
+            return toast('This username is empty', {type: 'warning', autoClose: 2000})
+        }
 
         if (email.trim() === '' || !email.trim().includes('@')) {
             return toast('Invalid Email', {type: 'warning', autoClose: 2000})
@@ -50,7 +54,7 @@ const RegisterScreen = () => {
                 return toast('Passwords do not match', {type: 'warning', autoClose: 2000})
             }
         }
-        dispatch(register(email, username, password, firstName, lastName))
+        dispatch(register(firstName, lastName, username, email, password))
     }
 
     const handleShowPassword = () => {
@@ -68,15 +72,19 @@ const RegisterScreen = () => {
                     <h1 className="title-form mb-4"><i className="bi bi-bezier2"></i> Create an Account</h1>
 
                     <div className="form-floating">
-                        <input type="text" className="form-control input my-3 textfield" id="floatingInputFirstName" name="firstName" value={firstName} onChange={handleChange} autoComplete="off" placeholder=" " />
+                        <input type="text" className="form-control input my-3 textfield" id="floatingInputFirstName" name="firstName" value={firstName} onChange={handleChange} placeholder=" " />
                         <label className="placeholder">First Name</label>
                     </div>
                     <div className="form-floating">
-                        <input type="text" className="form-control input my-3 textfield" id="floatingInputLastName" name="lastName" value={lastName} onChange={handleChange} autoComplete="off" placeholder=" " />
+                        <input type="text" className="form-control input my-3 textfield" id="floatingInputLastName" name="lastName" value={lastName} onChange={handleChange} placeholder=" " />
                         <label className="placeholder">Last Name</label>
                     </div>
                     <div className="form-floating">
-                        <input type="email" className="form-control input my-3 textfield" id="floatingInputEmail" name="email" value={email} onChange={handleChange} autoComplete="off" placeholder=" " />
+                        <input type="text" className="form-control input my-3 textfield" id="floatingInputUsername" name="username" value={username} onChange={handleChange} placeholder=" " />
+                        <label className="placeholder">Username</label>
+                    </div>
+                    <div className="form-floating">
+                        <input type="email" className="form-control input my-3 textfield" id="floatingInputEmail" name="email" value={email} onChange={handleChange} placeholder=" " />
                         <label className="placeholder" htmlFor="floatingInput">Email address</label>
                     </div>
                     <div className="form-floating group my-3">

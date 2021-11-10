@@ -1,36 +1,7 @@
-import { addDoc, collection, setDoc, doc } from "@firebase/firestore"
+import { setDoc, doc } from "@firebase/firestore"
 import { db } from '../firebase/config'
 import { types } from "../types/types"
-
-
-export const create = (data) => {
-    return {
-        type: types.userCreate,
-        payload: data
-    }
-}
-
-
-export const createUser = (uid, firstName, lastName, email) => {
-    return async (dispatch) => {
-        const data = {
-            uid,
-            firstName,
-            lastName,
-            email,
-            admin: 0
-        }
-
-        await setDoc(doc(db, `users`, `${uid}` ), data)
-
-        const newData = {
-            ...data,
-            uid
-        }
-
-        dispatch(create(newData))
-    }
-}
+import { toast } from "react-toastify"
 
 
 export const userRead = (data) => {
@@ -41,16 +12,24 @@ export const userRead = (data) => {
 }
 
 
-export const userUpdate = (uid, firstName, lastName, username, email, admin) => {
+export const userCreateOrUpdate = (uid, firstName, lastName, username, email, admin) => {
     return async (dispatch) => {
         const data = {
             firstName,
             lastName,
             username,
             email,
-            admin
+            admin,
+            uid
         }
         await setDoc(doc(db, 'users', `${uid}`), data)
-    }
 
+        const newData = {
+            ...data,
+            uid
+        }
+
+        dispatch(userRead(newData))
+        toast.success('Action success')
+    }
 }

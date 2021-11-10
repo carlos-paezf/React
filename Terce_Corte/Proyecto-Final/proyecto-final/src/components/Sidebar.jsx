@@ -1,14 +1,25 @@
 import React from 'react'
+import { useEffect } from 'react'
+import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { Link, NavLink } from 'react-router-dom'
 import { logout } from '../actions/auth'
+import { auth } from '../firebase/config'
+import { loadUsers } from '../helpers/loadData'
 
 const Sidebar = () => {
     const dispatch = useDispatch()
 
+    const { uid } = auth.currentUser;
+    const [admin, setAdmin] = useState(false)
+
     const handleLogout = () => {
         dispatch(logout())
     }
+
+    useEffect(() => {
+        loadUsers(uid).then(({ admin }) => admin ? setAdmin(true) : setAdmin(false))
+    }, [uid, admin])
 
 
     return (
@@ -16,6 +27,7 @@ const Sidebar = () => {
             <div className="logo">
                 <i className="bi bi-list"></i>
             </div>
+
             <ul className="options">
                 <li>
                     <NavLink to="/home" className="option" activeClassName="active-option">
@@ -36,18 +48,23 @@ const Sidebar = () => {
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to="/statistics" className="option" activeClassName="active-option">
-                        <label className="tooltip">Stadistics</label>
-                        <i className="bi bi-speedometer2"></i>
-                    </NavLink>
-                </li>
-                <li>
                     <NavLink to="/settings" className="option" activeClassName="active-option">
                         <label className="tooltip">Settings</label>
                         <i className="bi bi-sliders"></i>
                     </NavLink>
                 </li>
+                {
+                    admin
+                    && <li>
+                        <NavLink to="/statistics" className="option" activeClassName="active-option">
+                            <label className="tooltip">Stadistics</label>
+                            <i className="bi bi-speedometer2"></i>
+                        </NavLink>
+                    </li>
+                }
+
             </ul>
+
             <div className="user">
                 <div className="user-link">
                     <NavLink to="/user/config" activeClassName="active-option">

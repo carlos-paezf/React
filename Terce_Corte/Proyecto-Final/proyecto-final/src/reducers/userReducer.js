@@ -6,10 +6,6 @@ const initialState = {
 
 export const userReducer = (state = initialState, action) => {
     switch (action.type) {
-        case types.userCreate: return {
-            ...state,
-            userData: action.payload
-        }
         case types.userRead : return {
             ...state,
             userData: action.payload
