@@ -124,13 +124,14 @@ Además, dentro del mismo archivo también llamamos las librerías de firestore 
 
 ```js
 import { getFirestore } from 'firebase/firestore'
-import { GoogleAuthProvider } from 'firebase/auth'
+import { getAuth, GoogleAuthProvider } from 'firebase/auth'
 
 ...
 const db = getFirestore(app)
 const googleAuthProvider = new GoogleAuthProvider() 
+const auth = getAuth(app)
 
-export { db, googleAuthProvider }
+export { db, googleAuthProvider, auth }
 ```
 
 Dentro de la consola de Firebase, en la sección de ***Authentication***, establecemos que como Proveedores de acceso sean ***Google*** y ***Correo electrónico/contraseña***.
@@ -144,6 +145,8 @@ export const types = {
     login: '[Auth] login',
     logout: '[Auth] logout',
 
+    userRead: '[User] read',
+    
     gameCreate: '[Game] create',
     gameAdd: '[Game] add',
     gameDelete: '[Game] delete',
@@ -260,7 +263,7 @@ Para el ingreso o registro directo mediante Google, se crea una función que hac
 
 ```js
 import { signInWithPopup } from "@firebase/auth"
-import { googleAuthProvider } from "../firebase/config"
+import { auth, googleAuthProvider } from "../firebase/config"
 
 export const googleLogin = () => {
     return (dispatch) => {
@@ -276,6 +279,7 @@ Para ingresar con email y contraseña, tomamos ambos parámetros en una función
 
 ```js
 import { signInWithEmailAndPassword } from "@firebase/auth"
+import { auth } from '../firebase/config'
 
 export const emailAndPasswordLogin = (email, password) => {
     return (dispatch) => {
@@ -291,6 +295,7 @@ Para hacer un logout dentro de la aplicación, creamos una función que de maner
 
 ```js
 import { signOut } from "@firebase/auth"
+import { auth } from '../firebase/config'
 
 export const logout = () => {
     return async (dispatch) => {
@@ -308,6 +313,7 @@ Por último, pero no menos importante, la función de registro de usuario, solo,
 
 ```js
 import { createUserWithEmailAndPassword, updateProfile } from "@firebase/auth"
+import { auth } from '../firebase/config'
 
 export const register = (email, username, password) => {
     return (dispatch) => {
@@ -494,4 +500,289 @@ const App = () => {
         ...
     )
 }
+```
+
+## Loading
+
+Había un problema con las rutas una vez logueado: Si la aplicación se recargaba, la aplicación nuevamente validaba al usuario y redirigia siempre al Home. Para solucionarlo se añadieron unas lineas tipo interruptor.
+
+Mientras se carga el estado de login del usuario, se inicia una espera, la cuál termina una vez validado el usuario. Esta espera sirve para aplicar un renderizado condicional, diciendo que si está cargando muestre una pantalla de carga, o de lo contrario renderice los componentes o rutas solicitadas.
+
+```js
+const AppRouter = () => {
+    ...
+    const [loading, setLoading] = useState(true)
+
+    useEffect(() => {
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                ...
+                setLoading(false)
+            } else {
+                ...
+                setLoading(false)
+            }
+        })
+    }, [dispatch])
+
+    return (
+        <>
+            {
+                loading
+                    ? <LoadingScreen />
+                    : <Router>
+                       ...
+                    </Router>
+            }
+        </>
+    )
+}
+```
+
+## Manipulación de los Usuarios en Firebase
+
+Firebase permite la creación de los usuarios de diversas maneras. Cuando se hace un registro de usuario de manera "manual", ingresando la información en diversos inputs, se pueden capturar datos del usuario para una futura manipulación. Pero, cuando ingresamos con una cuenta de google son muy pocos los datos que se pueden aprovechar para el caso de esta aplicación.
+
+Los campos que he establecido para la aplicación han sido:
+
+- First Name
+- Last Name
+- Username
+- Email
+- Password
+- Admin
+
+Por medio de la autenticación con Google solo puedo capturar limpiamente son el email y el username. Los demás campos (exceptuando la contraseña) los quiero obtener para poder actualizar el perfil del usuario. Además de que el campo de Admin no se puede manipular desde el registro, sino desde la actualización de los datos, teniendo en cuenta que cumple la función de un rol.
+
+En Firebase no hay una gestión automatizada para los roles de una aplicación, razón por la cual se decide tomar una alternativa al crear una colección que almacene como documentos los uid de los usuarios y que su data sea toda la información a manipular.
+
+### User Reducer
+
+Lo primero es crear un reducer para poder observar los estados de la data. El estado inicial de la data es un objeto vacio, cuando se tome una acción de leer el usuario, se toma una copia de estado y la data cambiara a lo que se le pase por medio del payload:
+
+```js
+import { types } from "../types/types"
+
+const initialState = {
+    userData: {}
+}
+
+export const userReducer = (state = initialState, action) => {
+    switch (action.type) {
+        case types.userRead : return {
+            ...state,
+            userData: action.payload
+        }
+        default: return state
+    }
+}
+```
+
+Importante recordar que los reducers que queremos manejar los debemos instanciar en el store:
+
+```js
+const reducers = combineReducers({
+    auth: authReducer,
+    users: userReducer,
+})
+```
+
+### User actions
+
+Es hora de establecer que las acciones a realizar con los datos del usuario.
+
+Para tener la información en redux de los datos del usuario creamos la función de `userRead()` la cual define que tipo se acción se va a tomar y cual va a ser la información a entregar al payload.
+
+```js
+import { types } from "../types/types"
+
+export const userRead = (data) => {
+    return {
+        type: types.userRead,
+        payload: data
+    }
+}
+```
+
+El método que nos permite capturar los datos del registro para integrarlos a la colección personalizada es el de abajo. Este método se efectua de manera asincrona, pues espera a poder modificar el documento que almacena la información del usuario. La ruta que sigue dicha data es `users/{uid del usuario}` y dentro está la data. Una vez añadida la información al documento, se crear un objeto que toma la data modificada junto al uid, el cual se dispara dentro del método para leer al usuario.
+
+Por medio del método `setDoc()` de Firebase, se puede crear un documento en caso de que no exista, o modificarlo en caso contrario, lo cual es útil para aplicar la doble funcionalidad dentro de nuestro código.
+
+```js
+import { setDoc, doc } from "@firebase/firestore"
+import { db } from '../firebase/config'
+import { types } from "../types/types"
+import { toast } from "react-toastify"
+
+
+export const userCreateOrUpdate = (uid, firstName, lastName, username, email, admin) => {
+    return async (dispatch) => {
+        const data = {
+            firstName,
+            lastName,
+            username,
+            email,
+            admin,
+            uid
+        }
+        await setDoc(doc(db, 'users', `${uid}`), data)
+
+        const newData = {
+            ...data,
+            uid
+        }
+
+        dispatch(userRead(newData))
+        toast.success('Action success')
+    }
+}
+```
+
+### Carga de los datos del usuario
+
+Dentro del archivo `helpers/loadData.js` hay una función para cargar los datos de los usuarios que están dentro de la colección `users`. Su funcionamiento es simple: es un método asincrono que toma el uid del usuario actual y obtiene la información que hay almacenada del mismo dentro de la colección mediante la función `getDoc()` de Firebase. Posteriormente se regresa la información obtenida.
+
+```js
+import { doc, getDoc } from '@firebase/firestore'
+import { db } from '../firebase/config'
+
+export const loadUsers = async (uid) => {
+    const response = await getDoc(doc(db, `users/${uid}`))
+    const data = response.data()
+    return data
+}
+```
+
+### Implementación
+
+Esta aclaración va para los casos de login. El campo de Admin siempre ira en `false`, este se va a modificar dentro de las configuraciones del perfil del usuario.
+
+#### Registro manual
+
+Cuando el usuario se registra manualmente, los datos capturados del formulario de registro harán un dispatch dentro del método `userCreateOrUpdate` para añadirse a un nuevo documento teniendo por nombre el uid del usuario recien creado.
+
+```js
+export const register = (firstName, lastName, username, email, password) => {
+    return (dispatch) => {
+        createUserWithEmailAndPassword(auth, email, password)
+            .then(async ({ user }) => {
+                ...
+                dispatch(userCreateOrUpdate(user.uid, firstName, lastName, username, email, false))
+            })
+        ...
+    }
+}
+```
+
+#### Ingreso con Google
+
+Este caso es de cuidado. Cada que ingresamos con una cuenta de Google debemos evaluar si el usuario ya tiene un documento registrado dentro de la colección de `users`, y en caso contrario crearlo. No se puede usar la función de la misma manera que en el caso anterior, puesto que, se estaría reseteando la data del documento una y otra vez cada que se ingresa, evadiendo la persistencia.
+
+La validación se hace mediante la función `loadUsers()`, buscando si hay algún documento que esté asociado con el uid del usuario que esta ingresando a la plataforma. Si encuentra un documento, significa que el usuario ya estaba registrado antes, pero en caso de no encontrar, significa que el usuario ingresa por primera vez por lo que se le debe crear un documento nuevo dentro de la colección. Lo anterior se obtiene bajo la promesa de la función y evaluando la data y la acción correspondiente mediante un Nullish coalescing operator.
+
+```js
+export const googleLogin = () => {
+    return (dispatch) => {
+        
+        signInWithPopup(auth, googleAuthProvider)
+            .then(({ user }) => {
+                ...
+                loadUsers(user.uid)
+                    .then(userData => {
+                        userData 
+                            ?? dispatch(userCreateOrUpdate(user.uid, dn[0], dn[2], user.displayName, user.email, false))
+                    })
+            })
+        ...
+    }
+}
+```
+
+#### Cargar los datos del usuario respectivo
+
+Cada que se detecta un cambio en estado de Auth de la aplicación se debe buscar el documento del usuario bajo su uid. Por lo tanto dentro de `AppRouter.jsx`, dentro de la función que detecta el estado de cambio del auth llamamos a la función de `loadUsers()` y la información obtenida la disparamos a redux dentro del método `userRead()`.
+
+```js
+useEffect(() => {
+    onAuthStateChanged(auth, async (user) => {
+        if (user) {
+            dispatch(login(user.uid, user.displayName))
+            setLog(true)
+            const userData = await loadUsers(user.uid)
+            dispatch(userRead(userData))
+            setLoading(false)
+        } else {
+            setLog(false)
+            setLoading(false)
+        }
+    })
+}, [dispatch])
+```
+
+#### Actualizar los datos
+
+Mientras el usuario ya haya ingresado a la plataforma, puede modificar los datos "básicos" del mismo en una interfaz destinada para lo mismo. Dicha interfaz repite algunos de los campos del formulario de registro, pero también tenemos la opción de convertirnos en admin.
+
+La información de usuario se obtiene gracias a lo almacenado en Redux, y podemos acceder a ello mediante un selector de la librería de `react-redux`. Los estados de los campos son inicialmente los valores especificos de la data obtenida. Para el campo de admin, lo manipulamos con un state diferente, con el que seteamos su valor cada que se presiona el toggle mediante la función de `handleAdmin()`..
+
+Posteriormente, luego de hacer validaciones a los datos ingresados y demás, cuando el formulario sea enviado, se va disparar la función de `userCreateOrUpdate()` con los datos modificados.
+
+```js
+import React from 'react'
+import { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { userCreateOrUpdate } from '../actions/user'
+import { toast } from 'react-toastify'
+
+const UserSettings = () => {
+
+    const userData = useSelector(state => state.users.userData)
+    const dispatch = useDispatch()
+
+    const [data, setData] = useState({
+        firstName: `${userData.firstName ?? ''}`,
+        lastName: `${userData.lastName ?? ''}`,
+        username: `${userData.username ?? ''}`,
+        email: `${userData.email ?? ''}`
+    })
+
+    const [admin, setAdmin] = useState(userData.admin)
+
+    const { firstName, lastName, username, email } = data
+
+    ...
+
+    const handleAdmin = () => {
+        setAdmin(!admin)
+    }
+
+    const handleUpdateUser = (e) => {
+        ...
+        dispatch(userCreateOrUpdate(userData.uid, firstName, lastName, username, email, admin))
+    }
+
+
+    return (
+        <div className='main'>
+            <div className="user-settings">
+                ...
+                <form onSubmit={handleUpdateUser} className="form-user">
+                    <div className="form-floating">
+                        <input type="text" className="form-control input my-3 textfield" id="floatingInputFirstName" name="firstName" value={firstName} onChange={handleChange} autoComplete="off" placeholder=" " />
+                        <label className="placeholder">First Name</label>
+                    </div>
+                    ...
+                    <div className="admin">
+                        <input type="checkbox" id="toggle" className="offscreen" checked={admin} name="admin" value={admin} onChange={handleAdmin} />
+                        <label htmlFor="toggle" className="switch"></label>
+                        <p>Be a content manager</p>
+                    </div>
+                    <button className="my-3 btn btn-lg btn-dark" type="submit">Update Data</button>
+                </form>
+            </div>
+        </div>
+    )
+}
+
+export default UserSettings
 ```
