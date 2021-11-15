@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { emailAndPasswordLogin, googleLogin } from '../actions/auth'
 import { toast } from 'react-toastify'
+import { helperInput } from '../helpers/operations'
 
 const LoginScreen = () => {
 
@@ -18,13 +19,7 @@ const LoginScreen = () => {
 
     const { email, password } = data
 
-    const handleChange = (e) => {
-        const value = e.target.value
-        setData({
-            ...data,
-            [e.target.name]: value
-        })
-    }
+    const { handleChange } = helperInput(data, setData) 
 
     const handleEmailLogin = (e) => {
         e.preventDefault()

@@ -2,10 +2,15 @@ import React from 'react'
 import CardsNews from '../components/CardsNews'
 // import Carousel from '../components/Carousel'
 
-const HomeScreen = () => {
+const HomeScreen = ({ history }) => {
+    // const location = history.location.pathname
+
     return (
         <div className="main">
-            {/* <Carousel /> */}
+            {/* {
+                location === '/home' 
+                && <Carousel />
+            } */}
             <CardsNews />
         </div>
     )

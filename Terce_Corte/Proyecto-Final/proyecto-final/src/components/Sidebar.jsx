@@ -1,6 +1,4 @@
-import React from 'react'
-import { useEffect } from 'react'
-import { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { Link, NavLink } from 'react-router-dom'
 import { logout } from '../actions/auth'
@@ -18,7 +16,13 @@ const Sidebar = () => {
     }
 
     useEffect(() => {
-        loadUsers(uid).then(({ admin }) => admin ? setAdmin(true) : setAdmin(false))
+        loadUsers(uid).then((data) => {
+            data === undefined
+                ? setAdmin(false)
+                : data.admin
+                    ? setAdmin(true)
+                    : setAdmin(false)
+        })
     }, [uid, admin])
 
 
@@ -53,15 +57,12 @@ const Sidebar = () => {
                         <i className="bi bi-sliders"></i>
                     </NavLink>
                 </li>
-                {
-                    admin
-                    && <li>
-                        <NavLink to="/statistics" className="option" activeClassName="active-option">
-                            <label className="tooltip">Stadistics</label>
-                            <i className="bi bi-speedometer2"></i>
-                        </NavLink>
-                    </li>
-                }
+                <li>
+                    <NavLink to="/statistics" className="option" activeClassName="active-option">
+                        <label className="tooltip">Stadistics</label>
+                        <i className="bi bi-speedometer2"></i>
+                    </NavLink>
+                </li>
 
             </ul>
 
@@ -79,6 +80,12 @@ const Sidebar = () => {
                             <li>Payment methods</li>
                             <li>Shopping history</li>
                         </ul>
+                        {
+                            admin &&
+                            <ul className="user-menu">
+                                <li><Link to="/user/manage-games" className='url-user'>Manage Games</Link></li>
+                            </ul>
+                        }
                         <ul className="user-menu">
                             <li><Link to="/user/config" className='url-user'>Edit profile</Link></li>
                         </ul>

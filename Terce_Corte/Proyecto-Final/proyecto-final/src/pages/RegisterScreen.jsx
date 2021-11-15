@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { register } from '../actions/auth'
 import { toast } from 'react-toastify'
+import { helperInput } from '../helpers/operations'
 
 const RegisterScreen = () => {
 
@@ -22,13 +23,7 @@ const RegisterScreen = () => {
 
     const { firstName, lastName, username, email, password, confirmPassword } = data
 
-    const handleChange = (e) => {
-        const value = e.target.value
-        setData({
-            ...data,
-            [e.target.name]: value
-        })
-    }
+    const { handleChange } = helperInput(data, setData)
 
     const handleRegister = (e) => {
         e.preventDefault()

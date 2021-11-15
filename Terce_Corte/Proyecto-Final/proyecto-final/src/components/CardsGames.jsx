@@ -1,15 +1,12 @@
 import React from 'react'
 import games from '../helpers/games.json'
 import { Link } from 'react-router-dom'
+import { getRandomImage } from '../helpers/operations'
 
 
 export const CardGame = (props) => {
 
-    const { id, name, genres, price, discount_percent, size_mb, url } = props
-
-    const getRandomURL = (min, max) => {
-        return Math.floor(Math.random() * (max - min)) + min
-    }
+    const { id, name, genres, price, discount_percent, size_mb, screenshot } = props
 
     const applyDiscount = () => {
         let newPrice;
@@ -24,7 +21,7 @@ export const CardGame = (props) => {
 
     return (
         <div className="card-game">
-            <img src={url[getRandomURL(0, url.length)]} alt="" />
+            <img src={screenshot[getRandomImage(0, screenshot.length)]} alt="" />
             <div className="description-game">
                 <h3 className="game-name">{name}</h3>
                 <small>{genres.join(', ')}</small>

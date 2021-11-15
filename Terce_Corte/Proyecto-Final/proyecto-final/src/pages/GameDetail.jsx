@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useParams } from 'react-router'
 import games from '../helpers/games.json'
+import { getRandomImage } from '../helpers/operations'
 
 
 export const Tags = ({ genre }) => {
@@ -52,13 +53,9 @@ export const TableRequirements = ({ bcolor, name, processor, os, ram, gpu }) => 
 const GameDetail = ({ history }) => {
     const { idGame } = useParams()
 
-    const { name, genres, price, size_mb, version, release_date, description, developer, editor, classification_esrb, discount_percent, minimum_requirements, recommended_requirements, url } = games.games.find(g => g.id === parseInt(idGame))
+    const { name, genres, price, size_mb, version, release_date, description, developer, editor, classification_esrb, discount_percent, minimum_requirements, recommended_requirements, screenshot } = games.games.find(g => g.id === parseInt(idGame))
 
     const [index, setIndex] = useState(0)
-
-    const getRandomURL = (min, max) => {
-        return Math.floor(Math.random() * (max - min)) + min
-    }
 
     const applyDiscount = () => {
         let newPrice;
@@ -77,13 +74,13 @@ const GameDetail = ({ history }) => {
     const handlePrev = () => {
         setIndex(i => i - 1)
         if (index === 0) {
-            setIndex(url.length - 1)
+            setIndex(screenshot.length - 1)
         }
     }
 
     const handleNext = () => {
         setIndex(i => i + 1)
-        if (index === url.length - 1) {
+        if (index === screenshot.length - 1) {
             setIndex(0)
         }
     }
@@ -92,7 +89,7 @@ const GameDetail = ({ history }) => {
         <div className="game-detail">
             <div className="b-game">
                 <div className="h-game">
-                    <img className="h-b-image animate__animated animate__fadeInLeft" src={url[getRandomURL(0, url.length)]} alt="" />
+                    <img className="h-b-image animate__animated animate__fadeInLeft" src={screenshot[getRandomImage(0, screenshot.length)]} alt="" />
                     <div className="h-content">
                         <label className="go-back" onClick={handleBack}><i className="bi bi-arrow-left"></i> Go back</label>
                         <h1>{name}</h1>
@@ -123,7 +120,7 @@ const GameDetail = ({ history }) => {
 
                     <div className="c-g-images">
                         <div className="i-prev"><i className="bi bi-chevron-left" onClick={handlePrev}></i></div>
-                        <img className="animate__animated animate__fadeIn" src={url[index]} alt="" />
+                        <img className="animate__animated animate__fadeIn" src={screenshot[index]} alt="" />
                         <div className="i-next"><i className="bi bi-chevron-right" onClick={handleNext}></i></div>
                     </div>
                     

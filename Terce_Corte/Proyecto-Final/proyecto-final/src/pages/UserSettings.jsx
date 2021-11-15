@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { userCreateOrUpdate } from '../actions/user'
 import { toast } from 'react-toastify'
+import { helperInput } from '../helpers/operations'
 
 const UserSettings = () => {
 
@@ -20,13 +21,7 @@ const UserSettings = () => {
 
     const { firstName, lastName, username, email } = data
 
-    const handleChange = (e) => {
-        const value = e.target.value
-        setData({
-            ...data,
-            [e.target.name]: value
-        })
-    }
+    const { handleChange } = helperInput(data, setData)
 
     const handleAdmin = () => {
         setAdmin(!admin)
@@ -47,7 +42,6 @@ const UserSettings = () => {
             return toast('This email is empty', {type: 'warning', autoClose: 2000})
         }
         dispatch(userCreateOrUpdate(userData.uid, firstName, lastName, username, email, admin))
-        // console.log(data, admin)
     }
 
 

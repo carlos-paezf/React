@@ -6,6 +6,7 @@ import Sidebar from '../components/Sidebar'
 import GameDetail from '../pages/GameDetail'
 import GameScreen from '../pages/GameScreen'
 import HomeScreen from '../pages/HomeScreen'
+import ManageGames from '../pages/ManageGames'
 import ShopScreen from '../pages/ShopScreen'
 import UserSettings from '../pages/UserSettings'
 
@@ -22,6 +23,7 @@ const PrincipalRouter = () => {
                 <Route exact path="/settings" />
                 <Route exact path="/statistics" />
                 <Route exact path="/user/config" component={UserSettings} />
+                <Route exact path="/user/manage-games" component={ManageGames} />
                 <Redirect to="/home" />
             </Switch>
             <Footer />

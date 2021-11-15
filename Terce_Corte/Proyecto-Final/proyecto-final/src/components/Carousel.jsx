@@ -1,19 +1,16 @@
 import React, { useEffect, useRef } from 'react'
 import games from '../helpers/games.json'
 import { Link } from 'react-router-dom'
+import { getRandomImage } from '../helpers/operations'
 
 
 export const Slide = (props) => {
-    const { id, name, genres, url } = props
-
-    const getRandomURL = (min, max) => {
-        return Math.floor(Math.random() * (max - min)) + min
-    }    
+    const { id, name, genres, screenshot } = props   
 
     return (
         <div key={ id } className="slide">
             <Link to={ `/games/${id}` } >
-                <img src={ url[getRandomURL(0, url.length)] } alt="" />
+                <img src={ screenshot[getRandomImage(0, screenshot.length)] } alt="" />
                 <div className="text">
                     <h3 className="genres">{ genres.join(", ") }</h3>
                     <h1 className="name-game">{ name }</h1>
