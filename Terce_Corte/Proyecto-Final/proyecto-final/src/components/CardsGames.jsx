@@ -1,7 +1,8 @@
 import React from 'react'
-import games from '../helpers/games.json'
+import games from '../utils/games.json'
 import { Link } from 'react-router-dom'
 import { getRandomImage } from '../helpers/operations'
+import { useSelector } from 'react-redux'
 
 
 export const CardGame = (props) => {
@@ -43,6 +44,9 @@ export const CardGame = (props) => {
 
 
 const CardsGames = () => {
+
+    // const gamesData = useSelector(state => state.games.gamesData)
+
     return (
         <div className="main">
             <div className="games animate__animated animate__fadeIn">
@@ -50,6 +54,7 @@ const CardsGames = () => {
                 <div className="wrapper-cards">
                     {
                         games.games.map(g => <CardGame key={g.id} {...g} />)
+                        // gamesData.map(g => <CardGame key={g.id} {...g} />)
                     }
                 </div>
             </div>

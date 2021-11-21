@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react'
-import games from '../helpers/games.json'
+import games from '../utils/games.json'
 import { Link } from 'react-router-dom'
 import { getRandomImage } from '../helpers/operations'
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import news from '../helpers/news.json'
+import news from '../utils/news.json'
 
 export const CardNew = (props) => {
     const { title, content, author, images } = props

@@ -1,3 +1,39 @@
+
 .new-game {
+    padding: 25px 0;
     color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    
+    .g-form {
+        position: relative;
+        overflow: hidden;
+        width: 75%;
+        
+        .active-form, .disable-form {
+            width: 100%;
+        }
+        
+        .disable-form {
+            visibility: hidden;
+            position: absolute;
+        }
+
+        .textarea {
+            height: 200px;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            margin: 50px 0;
+
+            .previous, .next {
+                width: 125px;
+            }
+        }
+    }
 }

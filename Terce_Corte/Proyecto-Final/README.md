@@ -38,6 +38,90 @@ Lo  más importante es que el jugador puede seleccionar los juegos que desea com
 | Sustentación (conocimiento, manejo y modificación de la aplicación) y documentación (código, arquitectura y aplicación) | 1.7          |
 | Look & Feel (diseño, colores, logo)                                                                                     | 1.2          |
 
+## Arquitectura de la aplicación
+
+### Estructura del proyecto
+
+- `README.md`: Documentación del proyecto
+- `src`: Es el directorio del código fuente de la aplicación
+- `package.json`: Dependencia para los archivos o librerías de gestión del proyecto
+- `yarn.lock`: Archivo de bloqueo de la versión del proyecto
+
+Dentro del directorio `src` encontramos la siguiente estructura:
+
+- `actions`: Directorio para la definición de las acciones para juegos, usuarios y auth.
+- `assets`: Directorio para imagenes estaticas del proyecto.
+- `components`: Componentes reutilizables de la pantalla
+- `firebase`: Configuración para conectar Firebase con la aplicación
+- `helpers`: Funciones básicas para la aplicación
+- `pages`: Páginas para el enrutamiento
+- `reducers`: Definición de los reducers para los juegos, usuarios y auth
+- `router`: Establecimiento de las rutas para el proyecto
+- `sass`: Estilos CSS para el proyecto haciendo uso del preprocesador SASS
+- `store`: Creación del store de redux
+- `types`: Definición abstracta de los tipos para el proyecto
+- `utils`: Archivos temporales para prueba del funcionamiento del proyecto.
+- `App.jsx`: Componente central del proyecto
+
+### Pila de tecnología
+
+Se seleccionan las siguientes bibliotecas y herramientas de terceros para formar la pila de tecnología completa del proyecto:
+
+- react，react-dom；
+- react-router administra el enrutamiento de la aplicación;
+- Redux sirve como un contenedor de estado de JavaScript y react-redux conecta las aplicaciones React con redux;
+- Firebase para registro y login con google o email y contraseña
+- Fisrestore Database para almacenamiento de datos de usuario y productos por usuario y/o administrador.
+- Uso de la extensión para navegador React Developer Tools para observar comportamiento de la aplicación
+- Uso de la extensión Redux DevTools para observar datos enviados por dispatch de redux.
+
+### División de componentes
+
+El principio del desarrollo de componentes de React es que los componentes son responsables de representar la interfaz de usuario, y los diferentes estados de los componentes corresponden a diferentes interfaces de usuario.
+
+|                  | Componentes de la pantalla                                 | Componente Contenedor                                    |
+| ---------------- | ---------------------------------------------------------- | -------------------------------------------------------- |
+| Objetivos        | Pantalla de interfaz de usuario (Estructura y estilo HTML) | Lógica empresarial (obtener datos, actualizar el estado) |
+| Percibir Redux   | No                                                         | Si                                                       |
+| Fuentes de datos | Props                                                      | Suscripción al Store de Redux                            |
+| Cambiar datos    | LLamada a la función de devolución pasada por Props        | Dispatch Redux actions                                   |
+| Reutilizable     | Fuerte independencia                                       | Alto grado de acoplamiento empresarial                   |
+
+## Requisitos y Diagramas
+
+### Requisitos Funcionales
+
+| #   | Requisito                                                                        | Tipo     |
+| --- | -------------------------------------------------------------------------------- | -------- |
+| R1  | Registro de usuarios                                                             | Evidente |
+| R2  | Modificar información de los usuarios                                            | Evidente |
+| R3  | Registrar datos de nuevos juegos                                                 | Evidente |
+| R4  | Modificar información de los juegos                                              | Evidente |
+| R5  | Listar y buscar juegos en el sistema                                             | Evidente |
+| R6  | Registrar compras por usuario                                                    | Evidente |
+| R7  | Generar reportes de ventas                                                       | Evidente |
+| R8  | Generar reportes diarios, mensuales y anuales de uso de juego por usuario        | Evidente |
+| R9  | Generar reportes diarios, mensuales y anuales de uso por juego por administrador | Evidente |
+| R10 | Listar juegos en Biblioteca                                                      | Evidente |
+| R11 | Actualizar en tiempo real tiempos de descuento                                   | Oculto   |
+| R12 | Enviar por correo factura del cliente                                            | Evidente |
+| R13 | Generar un alerta en caso de actualización en un juego                           | Evidente |
+| R14 | Registrar métodos de pago                                                        | Evidente |
+
+### Diagramas
+
+- Diagrama Cliente Servidor
+
+![Cliente Servidor](./img/client-server.png)
+
+- Caso de uso 0:
+
+![Caso 0](./img/CU0.png)
+
+- Caso de uso 1:
+
+![Caso 1](./img/CU1.png)
+
 ## Primeros pasos del Proyecto
 
 - Creación del proyecto

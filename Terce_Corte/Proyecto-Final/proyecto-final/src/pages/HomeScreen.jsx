@@ -11,6 +11,7 @@ const HomeScreen = ({ history }) => {
                 location === '/home' 
                 && <Carousel />
             } */}
+                {/* <Carousel /> */}
             <CardsNews />
         </div>
     )

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useParams } from 'react-router'
-import games from '../helpers/games.json'
+import games from '../utils/games.json'
 import { getRandomImage } from '../helpers/operations'
 
 
