@@ -9,6 +9,7 @@ import HomeScreen from '../pages/HomeScreen'
 import ManageGames from '../pages/ManageGames'
 import ShopScreen from '../pages/ShopScreen'
 import UserSettings from '../pages/UserSettings'
+import NOTFound from '../components/NOTFound'
 
 const PrincipalRouter = () => {
     return (
@@ -25,6 +26,7 @@ const PrincipalRouter = () => {
                 <Route exact path="/user/config" component={UserSettings} />
                 <Route exact path="/user/manage-games" component={ManageGames} />
                 <Redirect to="/home" />
+                <Route component={NOTFound} />
             </Switch>
             <Footer />
         </>

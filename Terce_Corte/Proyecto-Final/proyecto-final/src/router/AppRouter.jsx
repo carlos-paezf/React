@@ -9,8 +9,9 @@ import { onAuthStateChanged } from '@firebase/auth'
 import { login } from '../actions/auth'
 import { auth } from '../firebase/config'
 import LoadingScreen from '../pages/LoadingScreen'
-import { loadUsers } from '../helpers/loadData'
+import { loadGames, loadGamesOwners, loadUsers } from '../helpers/loadData'
 import { userRead } from '../actions/user'
+import { gameRead, gameReadByAdmin } from '../actions/games'
 
 const AppRouter = () => {
 
@@ -25,7 +26,11 @@ const AppRouter = () => {
                 dispatch(login(user.uid, user.displayName))
                 setLog(true)
                 const userData = await loadUsers(user.uid)
+                const gameByAdmin = await loadGamesOwners(user.uid)
+                const gamesData = await loadGames()
                 dispatch(userRead(userData))
+                dispatch(gameReadByAdmin(gameByAdmin))
+                dispatch(gameRead(gamesData))
                 setLoading(false)
             } else {
                 setLog(false)

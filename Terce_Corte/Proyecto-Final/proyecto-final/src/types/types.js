@@ -6,8 +6,9 @@ export const types = {
 
     gameCreate: '[Game] create',
     gameAdd: '[Game] add',
-    gameDelete: '[Game] delete',
     gameRead: '[Game] read',
+    gameReadByAdmin: '[Game] read by admin',
+    gameDelete: '[Game] delete',
     gameClean: '[Game] clean',
     gameReport: '[Game] report',
 

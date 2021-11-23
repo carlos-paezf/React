@@ -1,11 +1,13 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
+import { gameDelete } from '../actions/games'
 import { getRandomImage } from '../helpers/operations'
-import { useSelector } from 'react-redux'
-import { useState } from 'react'
 
 
-export const CardGame = (props) => {
+export const AdminCardGame = (props) => {
+
+    const dispatch = useDispatch()
 
     const { idGame, name, genres, price, discount_percent, discount_date, size_mb, screenshotURLs } = props
 
@@ -34,6 +36,11 @@ export const CardGame = (props) => {
         return newPrice
     }
 
+    const handleDelete = () => {
+        dispatch(gameDelete(idGame))
+    }
+    
+
     return (
         <div className="card-game">
             <img src={images[getRandomImage(0, images.length)]} alt="" />
@@ -50,31 +57,12 @@ export const CardGame = (props) => {
                     }
                 </p>
                 <p id="size">{(size_mb / 1024).toFixed(2)} GB</p>
-                <Link to={`/games/${idGame}`}><button className="btn btn-dark">View more</button></Link>
-            </div>
-        </div>
-    )
-}
-
-
-const CardsGames = () => {
-
-    // const gamesData = useSelector(state => state.games.gamesData)
-    const gamesData = useSelector(state => state.games.gameData)
-    
-    return (
-        <div className="main">
-            <div className="games animate__animated animate__fadeIn">
-                <h1>List of Games</h1>
-                <div className="wrapper-cards">
-                    {
-                        // games.games.map(g => <CardGame key={g.id} {...g} />)
-                        gamesData.map((g, i) => <CardGame key={i} {...g} />)
-                    }
+                <div className="buttons-admin">
+                    <button className="btn btn-outline-danger" onClick={handleDelete}><i class="bi bi-trash"></i></button>
+                    <button className="btn btn-outline-info"><i class="bi bi-pen"></i></button>
+                    <Link to={`/games/${idGame}`}><button className="btn btn-outline-primary"><i class="bi bi-eye"></i></button></Link>
                 </div>
             </div>
         </div>
     )
 }
-
-export default CardsGames

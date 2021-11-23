@@ -1,39 +1,84 @@
-
-.new-game {
-    padding: 25px 0;
-    color: white;
+.game-admin,
+.admin-title,
+.new-game,
+.buttons {
     display: flex;
+}
+
+.game-admin {
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+    align-items: stretch;
+    width: 100%;
+
+    .admin-title {
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        width: 100%;
+        height: 50px;
+        margin: 25px 0;
+
+        i {
+            margin: 0 25px;
+            font-size: 25px;
+        }
+    }
+
+    .wrapper-cards-admin {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin: 0 25px;
+    }
+
+    .hidden {
+        display: none;
+    }
     
-    .g-form {
-        position: relative;
-        overflow: hidden;
-        width: 75%;
+    .new-game {
+        padding: 25px 0;
+        color: white;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
         
-        .active-form, .disable-form {
-            width: 100%;
-        }
+        .g-form {
+            position: relative;
+            overflow: hidden;
+            width: 75%;
+            
+            .active-form, .disable-form {
+                width: 100%;
+            }
+            
+            .disable-form {
+                visibility: hidden;
+                position: absolute;
+            }
         
-        .disable-form {
-            visibility: hidden;
-            position: absolute;
-        }
-
-        .textarea {
-            height: 200px;
-        }
-
-        .buttons {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-around;
-            margin: 50px 0;
-
-            .previous, .next {
-                width: 125px;
+            .textarea {
+                height: 200px;
+            }
+        
+            .buttons {
+                flex-direction: row;
+                justify-content: space-around;
+                margin: 50px 0;
+            
+                .previous, .next {
+                    width: 125px;
+                }
             }
         }
+    }
+}
+
+.buttons-admin {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    
+    button {
+        margin-left: 25px;
     }
 }

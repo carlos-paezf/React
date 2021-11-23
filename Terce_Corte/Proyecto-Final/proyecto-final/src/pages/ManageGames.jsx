@@ -289,46 +289,15 @@ export default ManageGames
  */
 
 import React from 'react'
-import { useState } from 'react'
-import FormGame from '../components/FormGame'
+import { AdminGame } from '../components/AdminGame'
+import { NewGame } from '../components/NewGame'
 
 const ManageGames = () => {
 
-    const [data, setData] = useState({
-        name: '',
-        description: '',
-        genres: '',
-        size_mb: '',
-        version: '',
-        release_date: '',
-        developer: '',
-        editor: '',
-        classification_esrb: '',
-        price: '',
-        discount_percent: '',
-        discount_date: '',
-        screenshotURLs: ''
-    })
-
-    const [minimumRequirements, setMinimumRequirements] = useState({
-        m_processor: '',
-        m_os: '',
-        m_ram: '',
-        m_gpu: ''
-    })
-
-    const [recommendedRequirements, setRecommendedRequirements] = useState({
-        r_processor: '',
-        r_os: '',
-        r_ram: '',
-        r_gpu: ''
-    })
-
-    
     return (
-        <div className="main">
-            <div>Games posted by me</div>
-            <FormGame data={data} setData={setData} minimumRequirements={minimumRequirements} setMinimumRequirements={setMinimumRequirements} recommendedRequirements={recommendedRequirements} setRecommendedRequirements={setRecommendedRequirements} />
+        <div className="main game-admin">
+            <NewGame />
+            <AdminGame />            
         </div>
     )
 }

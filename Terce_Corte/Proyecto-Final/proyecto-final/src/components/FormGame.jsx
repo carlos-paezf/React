@@ -102,11 +102,11 @@ const FormGame = ({ data, setData, minimumRequirements, setMinimumRequirements, 
         }
 
         const fullData = {
-            name, description, genres, 
-            size_mb, version, release_date, 
-            developer, editor, classification_esrb, 
-            price, discount_percent, discount_date, 
-            minimumRequirements, recommendedRequirements, 
+            name, description, genres,
+            size_mb, version, release_date,
+            developer, editor, classification_esrb,
+            price, discount_percent, discount_date,
+            minimumRequirements, recommendedRequirements,
             screenshotURLs
         }
 
@@ -115,7 +115,6 @@ const FormGame = ({ data, setData, minimumRequirements, setMinimumRequirements, 
 
     return (
         <div className="new-game">
-            <h3>Publish a new game</h3>
             <form onSubmit={handleNewGame} className='g-form'>
                 <div className={(slide === 0) ? "active-form animate__animated animate__fadeIn" : "disable-form"}>
                     <h4>General</h4>
